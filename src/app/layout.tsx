@@ -16,7 +16,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager - Applied to every page */}
+        {/* Google tag (gtag.js) - AW-18141846129 */}
+        <Script 
+          async 
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18141846129" 
+          strategy="afterInteractive" 
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18141846129');
+          `}
+        </Script>
+
+        {/* Google Tag Manager - GTM-TJ56BMBX */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -27,6 +42,7 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Tag Manager */}
+        
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
