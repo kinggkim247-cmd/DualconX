@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager - Applied to every page */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -32,7 +32,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased selection:bg-primary/30 selection:text-primary-foreground">
-        {/* Google Tag Manager (noscript) */}
+        {/* Google Tag Manager (noscript) - Fallback for every page */}
         <noscript>
           <iframe 
             src="https://www.googletagmanager.com/ns.html?id=GTM-TJ56BMBX"
@@ -42,8 +42,12 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        
         {children}
+        
         <Toaster />
+
+        {/* Tawk.to Live Support - Applied to every page */}
         <Script id="tawk-setup" strategy="afterInteractive">
           {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
