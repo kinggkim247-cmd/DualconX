@@ -54,6 +54,7 @@ export function AnalogTrustStrip() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     data-ai-hint={placeholderData?.imageHint || "forensics"}
+                    unoptimized
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-primary/5">

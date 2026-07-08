@@ -49,6 +49,7 @@ export function AnalogNavbar() {
             alt="AnalogHeal Logo" 
             fill 
             className="object-contain p-1"
+            unoptimized
           />
         </div>
       ) : (
@@ -139,7 +140,7 @@ export function AnalogNavbar() {
               <SheetHeader className="px-6 pt-10 text-left">
                 <SheetTitle className="text-2xl font-headline font-bold">Menu</SheetTitle>
                 <SheetDescription>
-                  Access our professional forensic recovery services and knowledge hub.
+                  Access our professional recovery services and knowledge hub.
                 </SheetDescription>
               </SheetHeader>
               <div className="flex flex-col h-full pt-6 px-6 gap-6">
