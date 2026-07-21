@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -50,7 +49,7 @@ export function AnalogNavbar() {
             alt="AnalogHeal Logo" 
             fill 
             className="object-contain p-1"
-            unoptimized
+            unoptimized={true}
           />
         </div>
       ) : (

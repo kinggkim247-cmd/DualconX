@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -142,7 +141,7 @@ export default function TrustAssetsPage() {
                             width={200}
                             height={200}
                             className="object-contain max-h-full"
-                            unoptimized
+                            unoptimized={true}
                           />
                         </div>
                       ) : (

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -55,7 +54,7 @@ export function AnalogTrustStrip() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     data-ai-hint={placeholderData?.imageHint || "forensics"}
-                    unoptimized
+                    unoptimized={true}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-primary/5">
