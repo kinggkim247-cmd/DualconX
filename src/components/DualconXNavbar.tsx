@@ -103,7 +103,7 @@ export function DualconXNavbar() {
         <div className="hidden lg:flex items-center gap-4">
           <div className="flex items-center gap-2 mr-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 glow-confirmation">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-green shadow-[0_0_5px_rgba(34,197,94,0.5)]" />
-            <span className="text-[10px] font-bold text-green-500 uppercase tracking-wider">Lab Analysts Online</span>
+            <span className="text-[10px] font-bold text-green-500 uppercase tracking-wider">Forensic Intake Available</span>
           </div>
           <Button variant="default" size="sm" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20 btn-glow-action font-bold">
             <Link href="#request">Open a Case</Link>

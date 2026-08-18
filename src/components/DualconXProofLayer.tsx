@@ -107,9 +107,8 @@ export function DualconXProofLayer() {
                   <ShieldCheck className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold uppercase tracking-wider mb-1">Entity Registration</div>
-                  <div className="text-muted-foreground text-sm">DualconX Forensic Systems Ltd.</div>
-                  <div className="text-primary font-mono text-xs mt-1">Reg #HE-45293-C1</div>
+                  <div className="font-bold text-lg text-foreground">DualconX</div>
+                  <div className="text-primary font-mono text-xs mt-1">Digital Forensics &amp; Recovery</div>
                 </div>
               </div>
               <div className="flex gap-4">

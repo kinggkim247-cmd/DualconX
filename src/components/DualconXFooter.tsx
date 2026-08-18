@@ -115,34 +115,9 @@ export function DualconXFooter() {
 
   return (
     <footer className="bg-card/50 border-t border-white/5 pt-0 pb-10">
-      {/* Command Centre CTA */}
-      <div className="relative overflow-hidden py-20 mb-20 border-b border-white/5">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-accent/[0.04] pointer-events-none" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              Intake Available
-            </div>
-            <h3 className="text-3xl lg:text-4xl font-headline font-bold mb-4">Have a Digital Evidence Problem?</h3>
-            <p className="text-muted-foreground text-lg mb-3 max-w-xl mx-auto">
-              Start with the facts. Tell DualconX what happened, and we&apos;ll help determine the right path forward.
-            </p>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/50 mb-10">
-              Secure Intake &nbsp;·&nbsp; Clear Communication &nbsp;·&nbsp; Verified Results
-            </p>
-            <Button size="lg" asChild className="h-14 px-10 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105">
-              <Link href="#request">
-                Open a Case <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[120px] -z-10" />
-      </div>
-
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="container mx-auto px-4 pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+          {/* Column 1 — DualconX */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3 group">
               {logoUrl ? (
@@ -161,63 +136,46 @@ export function DualconXFooter() {
                 </span>
               </div>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
-              Global leaders in professional digital evidence forensics and blockchain intelligence. DualconX operates institutional-grade restoration processes for asset reclamation.
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Digital forensics and recovery for people, organizations, and critical digital evidence.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>Budapest Obuda Gate, Arpad Fejedelem Utja 26-28, 5th Floor, Budapest, Hungary 1023</span>
-              </div>
-              <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                <Building className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>DualconX Forensic Systems Ltd. | Reg #HE-45293-C1</span>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Facebook className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Github className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
+            <div className="flex flex-col gap-2 text-[11px] font-bold text-foreground/80 uppercase tracking-widest mt-4">
+              <span className="flex items-center gap-2"><div className="w-1 h-1 rounded-full bg-primary" /> Secure Intake</span>
+              <span className="flex items-center gap-2"><div className="w-1 h-1 rounded-full bg-primary" /> Case-Based Support</span>
             </div>
           </div>
 
+          {/* Column 2 — CAPABILITIES */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Laboratory</h4>
-            <ul className="space-y-4 text-muted-foreground">
-              <li><Link href="#services" className="hover:text-primary transition-colors">Forensic Capabilities</Link></li>
+            <h4 className="font-bold text-sm tracking-widest uppercase mb-6 text-foreground/90">Capabilities</h4>
+            <ul className="space-y-4 text-sm text-muted-foreground">
+              <li><Link href="#services" className="hover:text-primary transition-colors">Digital Forensics</Link></li>
+              <li><Link href="#services" className="hover:text-primary transition-colors">Data Recovery</Link></li>
+              <li><Link href="#services" className="hover:text-primary transition-colors">Device Analysis</Link></li>
+              <li><Link href="#services" className="hover:text-primary transition-colors">Evidence Review</Link></li>
               <li><Link href="#process" className="hover:text-primary transition-colors">Case Process</Link></li>
-              <li><Link href="#blog" className="hover:text-primary transition-colors">DualconX Knowledge Hub</Link></li>
-              <li><Link href="#request" className="hover:text-primary transition-colors">Open a Case</Link></li>
-              <li><Link href="#contact" className="hover:text-primary transition-colors">Talk to DualconX</Link></li>
+              <li><Link href="#blog" className="hover:text-primary transition-colors">Knowledge Hub</Link></li>
             </ul>
           </div>
 
+          {/* Column 3 — INFORMATION */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Legal & Compliance</h4>
-            <ul className="space-y-4 text-muted-foreground">
-              <li>
-                <button 
-                  onClick={() => setSelectedDoc('engagement')}
-                  className="hover:text-primary transition-colors text-left"
-                >
-                  Terms of Forensic Engagement
-                </button>
-              </li>
+            <h4 className="font-bold text-sm tracking-widest uppercase mb-6 text-foreground/90">Information</h4>
+            <ul className="space-y-4 text-sm text-muted-foreground">
               <li>
                 <button 
                   onClick={() => setSelectedDoc('privacy')}
                   className="hover:text-primary transition-colors text-left"
                 >
-                  Data Privacy Policy
+                  Privacy
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => setSelectedDoc('engagement')}
+                  className="hover:text-primary transition-colors text-left"
+                >
+                  Terms
                 </button>
               </li>
               <li>
@@ -225,33 +183,49 @@ export function DualconXFooter() {
                   onClick={() => setSelectedDoc('compliance')}
                   className="hover:text-primary transition-colors text-left"
                 >
-                  Regulatory Compliance
+                  Security
                 </button>
               </li>
-              <li>
-                <button 
-                  onClick={() => setSelectedDoc('conflict')}
-                  className="hover:text-primary transition-colors text-left"
-                >
-                  Conflict of Interest
-                </button>
-              </li>
+              <li><Link href="#contact" className="hover:text-primary transition-colors">Responsible Disclosure</Link></li>
+              <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
+          {/* Column 4 — DUALCONX BRIEF */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Security Intelligence</h4>
-            <p className="text-muted-foreground text-sm mb-4">Receive critical security alerts and blockchain vulnerability reports from our lab.</p>
-            <form className="flex gap-2">
+            <h4 className="font-bold text-sm tracking-widest uppercase mb-6 text-foreground/90">DualconX Brief</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4 pr-4">
+              Forensic insights, recovery guidance, and digital security research.
+            </p>
+            <form className="flex flex-col gap-2">
               <input 
                 type="email" 
-                placeholder="Secure email" 
-                className="flex-1 bg-background border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-primary transition-colors"
+                placeholder="Your email" 
+                className="bg-background border border-white/10 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition-colors w-full"
               />
-              <button className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
-                Subscribe
+              <button className="bg-primary text-white rounded-lg px-4 py-2.5 text-sm font-bold hover:bg-primary/90 transition-colors w-full">
+                Subscribe →
               </button>
             </form>
+          </div>
+
+          {/* Column 5 — CASE DESK */}
+          <div>
+            <h4 className="font-bold text-sm tracking-widest uppercase mb-6 text-foreground/90 flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Case Desk
+            </h4>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4 pr-4">
+              Have a device, data, or digital evidence issue?
+            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Start with the facts.
+            </p>
+            <Button size="lg" asChild className="w-full bg-primary hover:bg-primary/90 font-bold transition-all shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+              <Link href="#request">
+                Open a Case <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
 
