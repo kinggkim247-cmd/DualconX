@@ -5,7 +5,7 @@ import { Twitter, Facebook, Linkedin, Github, MapPin, Building, ArrowRight, Shie
 import { DualconXLogoMark } from "@/components/DualconXLogo";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/lib/supabase";
+import { useBrandLogo } from "@/hooks/useBrandLogo";
 import Image from "next/image";
 import {
   Dialog,
@@ -105,21 +105,12 @@ const TechnicalRenderer = ({ text }: { text: string }) => (
 export function DualconXFooter() {
   const [year, setYear] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
-  const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const logoUrl = useBrandLogo();
   const [selectedDoc, setSelectedDoc] = useState<keyof typeof legalDocs | null>(null);
 
   useEffect(() => {
     setYear(new Date().getFullYear());
     setMounted(true);
-    const fetchLogo = async () => {
-      const { data } = await supabase
-        .from('operational_proofs')
-        .select('image_url')
-        .eq('asset_key', 'brand-logo')
-        .single();
-      if (data) setLogoUrl(data.image_url);
-    };
-    fetchLogo();
   }, []);
 
   return (
@@ -152,7 +143,7 @@ export function DualconXFooter() {
             <Link href="/" className="flex items-center gap-3 group">
               {logoUrl ? (
                 <div className="relative w-8 h-8 rounded bg-primary/10 overflow-hidden">
-                  <Image src={logoUrl} alt="Logo" fill className="object-contain p-1" />
+                  <Image src={logoUrl} alt="Logo" fill className="object-contain p-1" unoptimized />
                 </div>
               ) : (
                 <DualconXLogoMark size={28} />

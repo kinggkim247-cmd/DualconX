@@ -15,6 +15,7 @@ import {
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
+import { useBrandLogo } from "@/hooks/useBrandLogo";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -26,19 +27,10 @@ const navLinks = [
 export function DualconXNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const logoUrl = useBrandLogo();
 
   useEffect(() => {
     setMounted(true);
-    const fetchLogo = async () => {
-      const { data } = await supabase
-        .from('operational_proofs')
-        .select('image_url')
-        .eq('asset_key', 'brand-logo')
-        .single();
-      if (data) setLogoUrl(data.image_url);
-    };
-    fetchLogo();
   }, []);
 
   const LogoContent = () => (
@@ -50,7 +42,7 @@ export function DualconXNavbar() {
             alt="DualconX Logo" 
             fill 
             className="object-contain p-1"
-            unoptimized={true}
+            unoptimized
           />
         </div>
       ) : (

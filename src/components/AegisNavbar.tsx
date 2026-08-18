@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { Shield, Menu, MessageCircle, ArrowRight, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { useBrandLogo } from "@/hooks/useBrandLogo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -23,10 +25,23 @@ const navLinks = [
 export function AegisNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const logoUrl = useBrandLogo();
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const LogoMark = () => (
+    logoUrl ? (
+      <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-primary/5 border border-white/5">
+        <Image src={logoUrl} alt="DualconX Logo" fill className="object-contain p-1" unoptimized />
+      </div>
+    ) : (
+      <div className="p-2 bg-primary/20 rounded-lg">
+        <Shield className="w-8 h-8 text-primary" />
+      </div>
+    )
+  );
 
   if (!mounted) {
     return (
@@ -49,9 +64,7 @@ export function AegisNavbar() {
     <header className="glass-header">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors glow-interaction">
-            <Shield className="w-8 h-8 text-primary" />
-          </div>
+          <LogoMark />
           <span className="font-headline text-2xl font-bold tracking-tight">
             <span className="text-white">DUAL</span><span className="text-primary">CON</span><span className="text-accent">X</span>
           </span>

@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { Shield, Twitter, Facebook, Linkedin, Github, MapPin, Building, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useBrandLogo } from "@/hooks/useBrandLogo";
 
 export function AegisFooter() {
   const [year, setYear] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
+  const logoUrl = useBrandLogo();
 
   useEffect(() => {
     setYear(new Date().getFullYear());
@@ -42,7 +45,13 @@ export function AegisFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-2 group">
-              <Shield className="w-8 h-8 text-primary" />
+              {logoUrl ? (
+                <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-primary/5 border border-white/5">
+                  <Image src={logoUrl} alt="DualconX Logo" fill className="object-contain p-1" unoptimized />
+                </div>
+              ) : (
+                <Shield className="w-8 h-8 text-primary" />
+              )}
               <span className="font-headline text-2xl font-bold">
                 <span className="text-white">DUAL</span><span className="text-primary">CON</span><span className="text-accent">X</span>
               </span>

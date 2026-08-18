@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useBrandLogo } from "@/hooks/useBrandLogo";
 import {
   Sheet,
   SheetContent,
@@ -35,21 +36,12 @@ export function AdminSidebar({ userEmail }: { userEmail?: string }) {
   const pathname = usePathname();
   const router = useRouter();
   const { toast } = useToast();
-  const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const logoUrl = useBrandLogo();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const fetchLogo = async () => {
-      const { data } = await supabase
-        .from('operational_proofs')
-        .select('image_url')
-        .eq('asset_key', 'brand-logo')
-        .single();
-      if (data) setLogoUrl(data.image_url);
-    };
-    fetchLogo();
   }, []);
 
   const handleLogout = async () => {
@@ -78,7 +70,7 @@ export function AdminSidebar({ userEmail }: { userEmail?: string }) {
         <Link href="/admin/dashboard" className="flex items-center gap-3 mb-2" onClick={() => setIsOpen(false)}>
           {logoUrl ? (
             <div className="relative w-8 h-8 rounded bg-primary/10 overflow-hidden">
-              <Image src={logoUrl} alt="Logo" fill className="object-contain p-1" />
+              <Image src={logoUrl} alt="Logo" fill className="object-contain p-1" unoptimized />
             </div>
           ) : (
             <Shield className="w-6 h-6 text-primary" />

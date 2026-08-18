@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Shield, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -13,14 +13,8 @@ export function DualconXStickyCTA() {
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
-      // Show the sticky CTA after scrolling down 400px
-      if (window.scrollY > 400) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > 400);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -34,26 +28,45 @@ export function DualconXStickyCTA() {
         isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
       )}
     >
-      <div className="container mx-auto max-w-4xl">
-        <div className="bg-card/90 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4 glow-interaction">
-          <div className="hidden md:flex items-center gap-3 px-4 border-r border-white/10">
-            <div className="relative">
-              <Shield className="w-5 h-5 text-primary shadow-[0_0_8px_rgba(245,158,11,0.3)]" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse-green shadow-[0_0_5px_rgba(34,197,94,0.8)]" />
-            </div>
-            <div className="text-left">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-primary">Priority Forensic Intake</div>
-              <div className="text-[10px] font-semibold flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-green-500 shadow-[0_0_3px_rgba(34,197,94,0.5)]" />
-                Analysts Active Now
+      <div className="container mx-auto max-w-3xl">
+        <div className="bg-card/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+          {/* Top accent bar */}
+          <div className="h-[2px] w-full bg-gradient-to-r from-primary via-accent to-primary/50" />
+          <div className="p-3 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+            {/* Left: Label + status */}
+            <div className="flex items-center gap-3">
+              <div className="relative shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                  <span className="font-headline font-black text-primary text-sm leading-none">DX</span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse-green shadow-[0_0_6px_rgba(34,197,94,0.9)]" />
+              </div>
+              <div className="text-left">
+                <div className="text-[11px] font-black uppercase tracking-widest text-foreground leading-none mb-1">
+                  DualconX Case Desk
+                </div>
+                <div className="flex items-center gap-1.5 text-[10px] font-semibold text-green-500 uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_4px_rgba(34,197,94,0.7)]" />
+                  Intake Available
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-1 items-center justify-center sm:justify-end gap-2 w-full">
-            <Button size="lg" asChild className="w-full sm:w-auto h-12 px-8 gap-2 font-bold text-xs bg-primary text-primary-foreground shadow-lg shadow-primary/20 btn-glow-action">
+            {/* Centre: message (hidden on very small) */}
+            <p className="hidden md:block text-xs text-muted-foreground flex-1 text-center px-4">
+              Tell us what happened.{" "}
+              <span className="text-foreground font-semibold">We&apos;ll determine the next step.</span>
+            </p>
+
+            {/* Right: CTA */}
+            <Button
+              size="sm"
+              asChild
+              className="shrink-0 h-11 px-7 gap-2 font-bold text-xs bg-primary text-primary-foreground shadow-lg shadow-primary/20 btn-glow-action"
+            >
               <Link href="#request">
-                Get a Recovery Assessment <ArrowRight className="w-4 h-4" />
+                Open a Case <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </div>
