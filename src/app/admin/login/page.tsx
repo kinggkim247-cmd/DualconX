@@ -87,7 +87,7 @@ export default function AdminLoginPage() {
             )}
           </div>
           <h1 className="text-3xl font-headline font-bold text-foreground">
-            Analog<span className="text-primary">Heal</span> <span className="text-muted-foreground">Forensics</span>
+            <span className="text-white">DUAL</span><span className="text-primary">CON</span><span className="text-accent">X</span>
           </h1>
           <p className="text-sm text-muted-foreground uppercase tracking-widest font-bold">
             Laboratory Admin Terminal
@@ -108,7 +108,7 @@ export default function AdminLoginPage() {
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     type="email"
-                    placeholder="analyst@analogheal.com"
+                    placeholder="analyst@dualconx.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="pl-10 bg-background/50 border-white/10"

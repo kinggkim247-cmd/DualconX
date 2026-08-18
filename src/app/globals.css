@@ -4,45 +4,45 @@
 
 @layer base {
   :root {
-    /* Midnight Gold Authority Palette */
-    --background: 225 51% 6%; /* #070B14 Dark Navy Base */
-    --foreground: 223 25% 93%; /* #E6EAF2 */
+    /* Digital Evidence Command Center Palette */
+    --background: 218 44% 5%; /* #070B12 */
+    --foreground: 210 33% 97%; /* #F4F7FA */
     
-    --card: 223 45% 10%; /* #0B1426 Layered Blue */
-    --card-foreground: 223 25% 93%;
+    --card: 216 37% 11%; /* #111925 */
+    --card-foreground: 210 33% 97%;
     
-    --popover: 225 51% 6%;
-    --popover-foreground: 223 25% 93%;
+    --popover: 218 44% 5%;
+    --popover-foreground: 210 33% 97%;
     
-    /* Royal Gold for Action & Recovered Wealth (#F59E0B) */
-    --primary: 38 92% 50%; 
-    --primary-foreground: 38 92% 5%;
+    /* Primary Accent: Electric Cyan (#36D1DC) */
+    --primary: 184 70% 54%; 
+    --primary-foreground: 218 44% 5%;
     
-    --secondary: 221 37% 16%; /* #111827 Charcoal Blue */
-    --secondary-foreground: 223 25% 93%;
+    /* Secondary Accent: Violet (#7C5CFF) */
+    --secondary: 252 100% 68%;
+    --secondary-foreground: 210 33% 97%;
     
-    --muted: 221 37% 16%;
-    --muted-foreground: 215 15% 65%; /* #9AA4B2 */
+    --muted: 217 38% 8%; /* #0D131D Secondary background */
+    --muted-foreground: 213 14% 61%; /* #8D9AAA */
     
-    /* Forensic Cyan for Intelligence & Data (#22D3EE) */
-    --accent: 189 86% 53%; 
-    --accent-foreground: 225 51% 6%;
+    --accent: 252 100% 68%; 
+    --accent-foreground: 210 33% 97%;
     
-    --destructive: 0 84% 60%; /* #EF4444 Alert Red */
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 38 90% 63%; /* Warning #F5B84B */
+    --destructive-foreground: 218 44% 5%;
     
-    --border: 225 51% 12%;
-    --input: 225 51% 12%;
-    --ring: 38 92% 50%;
+    --border: 212 30% 17%; /* #1E2A38 */
+    --input: 212 30% 17%;
+    --ring: 184 70% 54%;
     
-    --radius: 0.75rem;
+    --radius: 0.75rem; /* ~12px — professional software radius */
 
     /* Chart Colors */
-    --chart-1: 38 92% 50%;  /* Wealth (Gold) */
-    --chart-2: 189 86% 53%; /* Intelligence (Cyan) */
-    --chart-3: 142 71% 45%; /* Success (Green) */
-    --chart-4: 0 84% 60%;   /* Threat (Red) */
-    --chart-5: 221 37% 40%;
+    --chart-1: 184 70% 54%; /* Cyan */
+    --chart-2: 252 100% 68%; /* Violet */
+    --chart-3: 149 61% 51%; /* Success Green */
+    --chart-4: 38 90% 63%;  /* Warning */
+    --chart-5: 216 37% 11%;
   }
 }
 
@@ -52,8 +52,8 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
-    /* Premium Midnight Gradient */
-    background: linear-gradient(135deg, #070B14 0%, #0B1426 50%, #111827 100%);
+    /* Command Console Gradient */
+    background: linear-gradient(135deg, #070B12 0%, #0D131D 50%, #111925 100%);
     background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -66,15 +66,15 @@
 }
 
 .text-gradient-action {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-300;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-300;
 }
 
 .text-gradient-intelligence {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-cyan-300;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-violet-300;
 }
 
 .hero-glow {
-  background: radial-gradient(circle at 50% -20%, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% -20%, rgba(54, 209, 220, 0.05) 0%, transparent 70%);
 }
 
 .btn-glow-action {
@@ -86,15 +86,30 @@
 }
 
 .glow-intelligence {
-  @apply shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-[0_0_25px_rgba(34,211,238,0.2)] transition-shadow duration-300;
+  box-shadow: 0 0 0 1px rgba(34,211,238,0.08), 0 1px 3px rgba(0,0,0,0.4);
 }
 
 .glow-success {
-  @apply shadow-[0_0_15px_rgba(34,197,94,0.15)] transition-shadow duration-300;
+  box-shadow: 0 0 0 1px rgba(34,197,94,0.1), 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .card-hover {
-  @apply hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300;
+  @apply hover:border-border/60 transition-all duration-200;
+}
+
+/* Panel: thin border, no floating shadow */
+.panel {
+  @apply bg-card border border-border rounded-xl;
+}
+
+/* Inset panel for secondary areas */
+.panel-inset {
+  @apply bg-background/60 border border-border/50 rounded-xl;
+}
+
+/* Status indicator dot */
+.status-dot {
+  @apply w-1.5 h-1.5 rounded-full;
 }
 
 @keyframes pulse-green {

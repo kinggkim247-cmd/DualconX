@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -52,7 +52,7 @@ export function AegisStickyCTA() {
 
           <div className="flex flex-1 items-center justify-center sm:justify-end gap-2 w-full">
             <Button size="sm" variant="secondary" asChild className="flex-1 sm:flex-none h-11 px-4 gap-2 font-bold text-[10px] glow-interaction">
-              <a href="https://t.me/AnalogHealSupport" target="_blank" rel="noopener noreferrer">
+              <a href="https://t.me/DualconXSupport" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-4 h-4" />
                 Telegram
               </a>

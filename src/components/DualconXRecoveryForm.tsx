@@ -59,7 +59,7 @@ const funnelOptions = [
   { id: "crypto-assets", label: "Assets Recovery", icon: Zap, description: "Stolen NFTs, DeFi exploits and cross-chain asset loss." },
 ];
 
-export function AnalogRecoveryForm() {
+export function DualconXRecoveryForm() {
   const { toast } = useToast();
   const [step, setStep] = useState(0); 
   const [isDrafting, setIsDrafting] = useState(false);
@@ -169,9 +169,9 @@ export function AnalogRecoveryForm() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-6xl font-headline font-bold mb-6 text-foreground">Initiate Forensic Recovery</h2>
+            <h2 className="text-3xl lg:text-6xl font-headline font-bold mb-6 text-foreground">Open a Case File</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Submit your case to our recovery labs. Our technical team provides a secure forensic assessment within 24 hours.
+              Submit your case to our evidence intake. Our technical team delivers a secure scan assessment within 24 hours.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export function AnalogRecoveryForm() {
               <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
                 <h3 className="font-bold text-lg mb-4">Official Laboratory Intake</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  All data is isolated and encrypted until reviewed by a lead analyst. This secure portal is the mandated method for initiating a recovery file.
+                  All data is isolated and encrypted until reviewed by a lead analyst. This secure Evidence Vault is the mandated method for opening a case file.
                 </p>
                 <div className="flex items-center gap-2 text-xs font-bold text-accent">
                   <Activity className="w-4 h-4" />
@@ -392,7 +392,7 @@ export function AnalogRecoveryForm() {
                           {isSubmitting ? (
                             <>Transmitting to Lab... <Loader2 className="ml-2 w-5 h-5 animate-spin" /></>
                           ) : (
-                            <>Initiate Recovery File <Send className="ml-2 w-5 h-5" /></>
+                            <>Open Case File <Send className="ml-2 w-5 h-5" /></>
                           )}
                         </Button>
                       </form>

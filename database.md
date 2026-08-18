@@ -1,6 +1,6 @@
-# AnalogHeal Forensics - Database Documentation
+﻿# DualconX Forensics - Database Documentation
 
-This document outlines the database schema and storage configuration used for the AnalogHeal Forensics platform, integrated via Supabase.
+This document outlines the database schema and storage configuration used for the DualconX Forensics platform, integrated via Supabase.
 
 ## Database Tables
 

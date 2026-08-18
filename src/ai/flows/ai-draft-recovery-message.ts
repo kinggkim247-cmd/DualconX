@@ -1,4 +1,4 @@
-'use server';
+﻿'use server';
 /**
  * @fileOverview An AI assistant flow to help users draft a detailed and clear recovery request message for forensic analysts.
  *
@@ -18,7 +18,7 @@ const AiDraftRecoveryMessageInputSchema = z.object({
 export type AiDraftRecoveryMessageInput = z.infer<typeof AiDraftRecoveryMessageInputSchema>;
 
 const AiDraftRecoveryMessageOutputSchema = z.object({
-  draftedMessage: z.string().describe('A detailed and clear drafted message for the recovery request, including optimal phrasing and necessary details for AnalogHeal forensic agents.'),
+  draftedMessage: z.string().describe('A detailed and clear drafted message for the recovery request, including optimal phrasing and necessary details for DualconX forensic agents.'),
 });
 export type AiDraftRecoveryMessageOutput = z.infer<typeof AiDraftRecoveryMessageOutputSchema>;
 
@@ -32,7 +32,7 @@ const draftRecoveryMessagePrompt = ai.definePrompt({
   name: 'draftRecoveryMessagePrompt',
   input: {schema: AiDraftRecoveryMessageInputSchema},
   output: {schema: AiDraftRecoveryMessageOutputSchema},
-  prompt: `You are a forensic intake specialist for AnalogHeal Forensics, a professional digital asset reclamation laboratory. Your task is to help victims draft a detailed and technical recovery request message based on their information. The message must be professional, empathetic, and formatted to help forensic analysts quickly initiate the tracing process.
+  prompt: `You are a forensic intake specialist for DualconX Forensics, a professional digital asset reclamation laboratory. Your task is to help victims draft a detailed and technical recovery request message based on their information. The message must be professional, empathetic, and formatted to help forensic analysts quickly initiate the tracing process.
 
 Focus on:
 - Clearly stating the forensic recovery type.

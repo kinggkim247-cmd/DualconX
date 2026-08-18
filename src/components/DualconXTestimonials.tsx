@@ -19,7 +19,7 @@ const glowMap = {
   zap: "glow-interaction",
 };
 
-export function AnalogTestimonials() {
+export function DualconXTestimonials() {
   const [caseStudies, setCaseStudies] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,7 +42,7 @@ export function AnalogTestimonials() {
     <section className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">Proven Recovery Results</h2>
+          <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">Proven Case Results</h2>
           <p className="text-muted-foreground text-lg">
             Specificity is our strength. See how we've navigated complex blockchain forensics to reclaim digital wealth for our clients.
           </p>
@@ -98,7 +98,7 @@ export function AnalogTestimonials() {
             })}
             {caseStudies.length === 0 && (
               <div className="col-span-full py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/5">
-                <p className="text-muted-foreground text-sm italic">Recovery records pending laboratory authentication...</p>
+                <p className="text-muted-foreground text-sm italic">Case records pending laboratory authentication...</p>
               </div>
             )}
           </div>
@@ -107,12 +107,12 @@ export function AnalogTestimonials() {
         <div className="flex flex-col items-center gap-4">
           <Button size="lg" asChild className="px-10 h-16 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105 btn-glow">
             <Link href="#request">
-              Start My Recovery Now <ArrowRight className="ml-2 w-5 h-5" />
+              Start My Case <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
           <div className="flex items-center gap-2 text-sm text-muted-foreground font-semibold glow-confirmation px-3 py-1 rounded-full bg-green-500/5">
             <ShieldCheck className="w-4 h-4 text-green-500 shadow-[0_0_5px_rgba(34,197,94,0.5)]" /> 
-            Join 3,800+ successful recovery clients
+            Join 3,800+ verified case clients
           </div>
         </div>
       </div>

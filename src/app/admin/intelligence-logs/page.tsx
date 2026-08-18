@@ -115,10 +115,10 @@ export default function IntelligenceLogsPage() {
             <CardContent className="p-4 lg:p-6 space-y-4 max-h-[500px] overflow-y-auto">
               {logs.map((log, idx) => (
                 <div key={idx} className="flex gap-4 text-[10px] lg:text-xs leading-relaxed group">
-                  <span className="text-muted-foreground/40 font-bold shrink-0">[{log.time}]</span>
+                  <span className="font-mono text-muted-foreground/40 font-bold shrink-0">[{log.time}]</span>
                   <span className="text-muted-foreground/60 shrink-0 uppercase tracking-widest font-bold hidden sm:inline">{log.source}</span>
                   <span className="flex-1 text-foreground/80">{log.event}</span>
-                  <span className={cn("font-bold uppercase tracking-widest", log.color)}>{log.status}</span>
+                  <span className={cn("font-mono font-bold uppercase tracking-widest", log.color)}>{log.status}</span>
                 </div>
               ))}
               <div className="flex gap-4 text-xs animate-pulse">

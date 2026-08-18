@@ -283,7 +283,7 @@ export default function CaseStudiesManager() {
                          study.icon_type === 'shield' ? <ShieldCheck className="w-4 h-4" /> : 
                          <Zap className="w-4 h-4" />}
                       </div>
-                      <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Case {study.case_id}</span>
+                      <span className="font-mono text-[10px] font-bold text-primary uppercase tracking-widest">Case {study.case_id}</span>
                     </div>
                     <div className="space-y-1">
                       <div className="font-bold text-sm leading-tight">{study.title}</div>

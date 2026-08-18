@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Shield, Menu, ArrowRight, ShieldCheck } from "lucide-react";
+import { Menu, ArrowRight, ShieldCheck } from "lucide-react";
+import { DualconXLogoMark } from "@/components/DualconXLogo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -22,7 +23,7 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-export function AnalogNavbar() {
+export function DualconXNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
@@ -46,23 +47,21 @@ export function AnalogNavbar() {
         <div className="relative w-10 h-10 overflow-hidden rounded-lg bg-primary/5 border border-white/5">
           <Image 
             src={logoUrl} 
-            alt="AnalogHeal Logo" 
+            alt="DualconX Logo" 
             fill 
             className="object-contain p-1"
             unoptimized={true}
           />
         </div>
       ) : (
-        <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors glow-interaction shrink-0">
-          <Shield className="w-8 h-8 text-primary" />
-        </div>
+        <DualconXLogoMark size={32} />
       )}
       <div className="flex flex-col">
         <span className="font-headline text-2xl font-bold tracking-tight leading-none">
-          Analog<span className="text-primary">Heal</span> <span className="text-muted-foreground font-medium text-lg">Forensics</span>
+          <span className="text-white">DUAL</span><span className="text-primary">CON</span><span className="text-accent">X</span>
         </span>
-        <span className="text-[9px] text-muted-foreground font-medium uppercase tracking-wider mt-1 hidden sm:block">
-          Crypto Asset Recovery & Blockchain Intelligence
+        <span className="text-[8px] text-muted-foreground font-mono font-medium uppercase tracking-[0.18em] mt-1 hidden sm:block">
+          Digital Forensics &amp; Recovery
         </span>
       </div>
     </div>
@@ -72,16 +71,14 @@ export function AnalogNavbar() {
     return (
       <header className="glass-header">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="p-2 bg-primary/20 rounded-lg">
-              <Shield className="w-8 h-8 text-primary" />
-            </div>
+          <div className="flex items-center gap-3">
+            <DualconXLogoMark size={32} />
             <div className="flex flex-col">
               <span className="font-headline text-2xl font-bold tracking-tight leading-none">
-                Analog<span className="text-primary">Heal</span> Forensics
+                <span className="text-white">DUAL</span><span className="text-primary">CON</span><span className="text-accent">X</span>
               </span>
-              <span className="text-[9px] text-muted-foreground font-medium uppercase tracking-wider mt-1 hidden sm:block">
-                Crypto Asset Recovery & Blockchain Intelligence
+              <span className="text-[8px] text-muted-foreground font-mono font-medium uppercase tracking-[0.18em] mt-1 hidden sm:block">
+                Digital Forensics &amp; Recovery
               </span>
             </div>
           </div>
@@ -117,7 +114,7 @@ export function AnalogNavbar() {
             <span className="text-[10px] font-bold text-green-500 uppercase tracking-wider">Lab Analysts Online</span>
           </div>
           <Button variant="default" size="sm" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20 btn-glow-action font-bold">
-            <Link href="#request">Start Recovery</Link>
+            <Link href="#request">Open a Case</Link>
           </Button>
         </div>
 
@@ -140,7 +137,7 @@ export function AnalogNavbar() {
               <SheetHeader className="px-6 pt-10 text-left">
                 <SheetTitle className="text-2xl font-headline font-bold">Menu</SheetTitle>
                 <SheetDescription>
-                  Access our professional recovery services and knowledge hub.
+                  Access our professional case intake and forensic knowledge hub.
                 </SheetDescription>
               </SheetHeader>
               <div className="flex flex-col h-full pt-6 px-6 gap-6">
@@ -164,7 +161,7 @@ export function AnalogNavbar() {
                   </div>
                   <Button className="w-full justify-between h-12 btn-glow-action text-primary-foreground font-bold" asChild>
                     <Link href="#request" onClick={() => setIsOpen(false)}>
-                      Start Recovery <ArrowRight className="w-5 h-5" />
+                      Open a Case <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
                 </div>

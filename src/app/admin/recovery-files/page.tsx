@@ -164,7 +164,7 @@ export default function RecoveryFilesPage() {
                           </TableCell>
                           <TableCell className="text-sm font-bold font-mono text-accent">${file.estimated_value}</TableCell>
                           <TableCell>
-                            <Badge variant="outline" className="text-[9px] border-white/10 uppercase tracking-tighter">
+                            <Badge variant="outline" className="font-mono text-[9px] border-white/10 uppercase tracking-tighter">
                               {file.status}
                             </Badge>
                           </TableCell>
@@ -205,7 +205,7 @@ export default function RecoveryFilesPage() {
                 </DialogTitle>
                 <DialogDescription className="flex items-center gap-4 text-xs font-mono text-muted-foreground mt-2">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {new Date(selectedCase.created_at).toLocaleString()}</span>
-                  <span className="flex items-center gap-1 uppercase tracking-tighter bg-white/5 px-2 py-0.5 rounded border border-white/10">Status: {selectedCase.status}</span>
+                  <span className="font-mono flex items-center gap-1 uppercase tracking-tighter bg-white/5 px-2 py-0.5 rounded border border-white/10">Status: {selectedCase.status}</span>
                 </DialogDescription>
               </DialogHeader>
 

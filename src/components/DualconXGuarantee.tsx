@@ -26,14 +26,14 @@ const guarantees = [
   },
 ];
 
-export function AnalogHealGuarantee() {
+export function DualconXGuarantee() {
   return (
     <section className="py-24 bg-card/30 border-y border-white/5">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold uppercase tracking-widest mb-6">
             <ShieldCheck className="w-3 h-3" />
-            The AnalogHeal Commitment
+            The DualconX Commitment
           </div>
           <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">Our Ironclad Guarantee</h2>
           <p className="text-muted-foreground text-lg">
@@ -43,10 +43,10 @@ export function AnalogHealGuarantee() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {guarantees.map((item) => (
-            <div key={item.title} className="flex gap-6 p-8 rounded-3xl bg-background border border-white/10 hover:border-primary/50 transition-all group">
+            <div key={item.title} className="flex gap-5 p-6 rounded-xl bg-background border border-border hover:border-primary/40 transition-colors duration-200 group">
               <div className="shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <item.icon className="w-7 h-7" />
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-200 shrink-0">
+                  <item.icon className="w-5 h-5" />
                 </div>
               </div>
               <div className="space-y-3">

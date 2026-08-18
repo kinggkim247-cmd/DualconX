@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -83,7 +83,7 @@ export function AdminSidebar({ userEmail }: { userEmail?: string }) {
           ) : (
             <Shield className="w-6 h-6 text-primary" />
           )}
-          <span className="font-headline font-bold text-lg">AnalogHeal</span>
+          <span className="font-headline font-bold text-lg">DualconX</span>
         </Link>
         <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
           Forensic Command

@@ -18,7 +18,7 @@ const methods = [
   },
   {
     title: "Exchange Cooperation",
-    description: "AnalogHeal maintains direct emergency communication channels with the security and compliance teams of the world's top 20 centralized exchanges.",
+    description: "DualconX maintains direct emergency communication channels with the security and compliance teams of the world's top 20 centralized exchanges.",
     icon: Building2,
     stats: "Direct CEX Access",
   },
@@ -30,7 +30,7 @@ const methods = [
   },
 ];
 
-export function AnalogHealMethodology() {
+export function DualconXMethodology() {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -40,9 +40,9 @@ export function AnalogHealMethodology() {
               <ShieldCheck className="w-3 h-3" />
               Technical Competence
             </div>
-            <h2 className="text-4xl lg:text-6xl font-headline font-bold mb-6">The Science of Reclamation</h2>
+            <h2 className="text-4xl lg:text-6xl font-headline font-bold mb-6">Digital Evidence, Made Clear</h2>
             <p className="text-muted-foreground text-lg">
-              Recovery isn't luck, it's a combination of advanced digital forensics, international legal pressure, and direct institutional cooperation.
+              Complex device problems shouldn't require complex explanations. DualconX turns digital investigations into a clear, guided process.
             </p>
           </div>
           <div className="hidden lg:block">
@@ -60,11 +60,11 @@ export function AnalogHealMethodology() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {methods.map((method) => (
-            <div key={method.title} className="group p-1 rounded-[2rem] bg-gradient-to-br from-white/10 to-transparent hover:from-primary/20 transition-all duration-500">
-              <div className="bg-card h-full p-8 lg:p-10 rounded-[1.9rem] flex flex-col sm:flex-row gap-8 items-start transition-all">
+            <div key={method.title} className="border border-border rounded-xl hover:border-primary/40 transition-colors duration-200 overflow-hidden">
+              <div className="bg-card h-full p-8 lg:p-10 flex flex-col sm:flex-row gap-8 items-start">
                 <div className="shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                    <method.icon className="w-8 h-8" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-200">
+                    <method.icon className="w-5 h-5" />
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -105,7 +105,6 @@ export function AnalogHealMethodology() {
         </div>
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
     </section>
   );
 }

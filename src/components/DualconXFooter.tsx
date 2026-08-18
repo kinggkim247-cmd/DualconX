@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Shield, Twitter, Facebook, Linkedin, Github, MapPin, Building, ArrowRight, ShieldCheck, Scale, Lock, FileText, AlertTriangle } from "lucide-react";
+import { Twitter, Facebook, Linkedin, Github, MapPin, Building, ArrowRight, ShieldCheck, Scale, Lock, FileText, AlertTriangle } from "lucide-react";
+import { DualconXLogoMark } from "@/components/DualconXLogo";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
@@ -21,7 +22,7 @@ const legalDocs = {
     description: "Official protocols governing the laboratory's relationship with private and institutional clients.",
     content: `
       **1. Scope of Investigation**
-      AnalogHeal Forensics provides digital asset tracing and heuristic probability assessments. We do not guarantee recovery but provide the technical evidence required for reclamation.
+      DualconX Forensics provides digital evidence tracing and heuristic probability assessments. We do not guarantee restoration but provide the technical evidence required for reclamation.
 
       **2. Client Obligations**
       Clients must provide accurate Transaction IDs (TXIDs), wallet addresses, and chronological event logs. Failure to provide validated data may result in case suspension.
@@ -30,7 +31,7 @@ const legalDocs = {
       For qualifying fraud cases, the laboratory operates on a performance-aligned model. Initial assessments are complimentary. Specific forensic cycles may require resource allocation fees which are disclosed prior to initiation.
 
       **4. Liability**
-      AnalogHeal acts as a forensic consultant. Final asset reclamation is subject to the cooperation of Virtual Asset Service Providers (VASPs) and law enforcement jurisdictions.
+      DualconX acts as a forensic consultant. Final asset reclamation is subject to the cooperation of Virtual Asset Service Providers (VASPs) and law enforcement jurisdictions.
     `
   },
   privacy: {
@@ -54,10 +55,10 @@ const legalDocs = {
   compliance: {
     title: "Regulatory Compliance",
     icon: ShieldCheck,
-    description: "International standards and institutional certifications of the AnalogHeal Laboratory.",
+    description: "International standards and institutional certifications of the DualconX Laboratory.",
     content: `
       **1. FINMA Adherence**
-      AnalogHeal Forensic Systems Ltd. operates under the digital asset guidelines established by the Swiss Financial Market Supervisory Authority (FINMA).
+      DualconX Forensic Systems Ltd. operates under the digital asset guidelines established by the Swiss Financial Market Supervisory Authority (FINMA).
 
       **2. ISO 27001 Certification**
       The laboratory maintains ISO 27001 certification for Information Security Management Systems (ISMS), ensuring global standard protection.
@@ -75,7 +76,7 @@ const legalDocs = {
     description: "Transparency protocols ensuring unbiased forensic reporting.",
     content: `
       **1. Neutrality Protocol**
-      AnalogHeal maintain strict independence from exchanges and DeFi protocols. Our findings are based solely on on-chain heuristics and forensic evidence.
+      DualconX maintain strict independence from exchanges and DeFi protocols. Our findings are based solely on on-chain heuristics and forensic evidence.
 
       **2. Case Screening**
       Every intake undergoes an automated conflict-of-interest check. We do not accept cases where the laboratory has a prior or existing investigation into the target entity that could compromise report objectivity.
@@ -101,7 +102,7 @@ const TechnicalRenderer = ({ text }: { text: string }) => (
   </div>
 );
 
-export function AnalogFooter() {
+export function DualconXFooter() {
   const [year, setYear] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
@@ -128,12 +129,12 @@ export function AnalogFooter() {
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h3 className="text-3xl lg:text-4xl font-headline font-bold mb-4">Protect Your Digital Rights Today</h3>
           <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Professional forensic recovery is highly time-sensitive. Speak with our lab specialists today for a confidential review of your situation.
+            Professional forensic case intake is highly time-sensitive. Speak with our lab specialists today for a confidential scan of your situation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" asChild className="w-full sm:w-auto px-10 h-14 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105">
               <Link href="#request">
-                Start Forensic Intake <ArrowRight className="ml-2 w-5 h-5" />
+                Start a Case <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             <div className="flex items-center gap-2 text-sm font-bold text-green-500 uppercase tracking-wider">
@@ -148,20 +149,25 @@ export function AnalogFooter() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-3 group">
               {logoUrl ? (
                 <div className="relative w-8 h-8 rounded bg-primary/10 overflow-hidden">
                   <Image src={logoUrl} alt="Logo" fill className="object-contain p-1" />
                 </div>
               ) : (
-                <Shield className="w-8 h-8 text-primary" />
+                <DualconXLogoMark size={28} />
               )}
-              <span className="font-headline text-2xl font-bold">
-                Analog<span className="text-primary">Heal</span> <span className="text-sm font-medium opacity-50">Forensics</span>
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="font-headline text-xl font-bold">
+                  <span className="text-white">DUAL</span><span className="text-primary">CON</span><span className="text-accent">X</span>
+                </span>
+                <span className="text-[8px] text-muted-foreground font-mono uppercase tracking-[0.18em] mt-1">
+                  Digital Forensics &amp; Recovery
+                </span>
+              </div>
             </Link>
             <p className="text-muted-foreground leading-relaxed">
-              Global leaders in professional digital asset forensics and blockchain recovery. AnalogHeal Recovery Labs provides institutional-grade intelligence for asset reclamation.
+              Global leaders in professional digital evidence forensics and blockchain intelligence. DualconX operates institutional-grade restoration processes for asset reclamation.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -170,7 +176,7 @@ export function AnalogFooter() {
               </div>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <Building className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>AnalogHeal Forensic Systems Ltd. | Reg #HE-45293-C1</span>
+                <span>DualconX Forensic Systems Ltd. | Reg #HE-45293-C1</span>
               </div>
             </div>
             <div className="flex gap-4">
@@ -255,7 +261,7 @@ export function AnalogFooter() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>© 2020-{mounted ? year : '...'} AnalogHeal Forensics & Recovery Labs. All rights reserved.</div>
+          <div>© 2020-{mounted ? year : '...'} DualconX Forensics & Evidence Labs. All rights reserved.</div>
           <div className="flex gap-6">
             <span>Certifications:</span>
             <span className="font-bold text-foreground/50">ISO 27001</span>

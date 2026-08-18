@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -62,7 +62,7 @@ const TechnicalRenderer = ({ text }: { text: string }) => {
   );
 };
 
-export function AnalogKnowledgeHub() {
+export function DualconXKnowledgeHub() {
   const [question, setQuestion] = useState("");
   const [aiAnswer, setAiAnswer] = useState("");
   const [isLoading, setIsLoading] = useState(false);

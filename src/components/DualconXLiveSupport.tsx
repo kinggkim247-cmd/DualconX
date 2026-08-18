@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { MessageSquare, X, ShieldCheck, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function AnalogLiveSupport() {
+export function DualconXLiveSupport() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -32,7 +32,7 @@ export function AnalogLiveSupport() {
               <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 border-2 border-primary rounded-full animate-pulse-green shadow-[0_0_5px_rgba(34,197,94,1)]" />
             </div>
             <div>
-              <div className="font-bold text-sm font-body">AnalogHeal Lab Status</div>
+              <div className="font-bold text-sm font-body">DualconX Lab Status</div>
               <div className="text-[10px] opacity-80 flex items-center gap-1 font-body">
                 <Activity className="w-3 h-3 animate-pulse" />
                 Analysts Online

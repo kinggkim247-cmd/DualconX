@@ -4,39 +4,39 @@ import Link from "next/link";
 
 const steps = [
   {
-    title: "Submit Request",
-    description: "Provide case details via our secure form. Your file is immediately assigned to a forensic agent.",
-    benefit: "Instant secure intake & encryption",
+    title: "Submit",
+    description: "Tell us what happened.",
+    benefit: "Phase 01",
     icon: ClipboardList,
   },
   {
-    title: "Free Assessment",
-    description: "Experts review your case. You'll receive a clear recovery probability estimate and roadmap.",
-    benefit: "Detailed Probability Report",
+    title: "Examine",
+    description: "We inspect the available digital evidence.",
+    benefit: "Phase 02",
     icon: Search,
   },
   {
-    title: "Recovery Process",
-    description: "We execute blockchain tracing, forensic analysis, and legal intercept protocols.",
-    benefit: "Active Forensic Investigation",
+    title: "Recover",
+    description: "Recover what can be safely restored.",
+    benefit: "Phase 03",
     icon: Settings,
   },
   {
-    title: "Asset Restored",
-    description: "Successful reclamation and transfer of assets back to your verified wallet or bank.",
-    benefit: "Verified Asset Settlement",
+    title: "Verify",
+    description: "Review the results before delivery.",
+    benefit: "Phase 04",
     icon: CheckCircle,
   },
 ];
 
-export function AnalogSteps() {
+export function DualconXSteps() {
   return (
     <section id="process" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">Recovery in 4 Simple Steps</h2>
+          <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">One Case. One Clear Process.</h2>
           <p className="text-muted-foreground text-lg">
-            We make the complex simple. Our transparent process keeps you informed from initial assessment to successful recovery.
+            One case. Four clear phases. We keep you informed from initial scan through to verified restoration.
           </p>
         </div>
 
@@ -46,19 +46,17 @@ export function AnalogSteps() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {steps.map((step, idx) => (
               <div key={step.title} className="flex flex-col items-center text-center relative group">
-                <div className="w-20 h-20 rounded-full bg-background border-4 border-white/5 flex items-center justify-center mb-6 group-hover:border-primary/50 transition-all shadow-xl">
-                  <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center shadow-lg">
-                    {idx + 1}
+                <div className="w-16 h-16 rounded-xl bg-background border border-border flex items-center justify-center mb-6 relative group-hover:border-primary/50 transition-colors">
+                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-md bg-primary text-background text-[10px] font-bold font-mono flex items-center justify-center">
+                    0{idx + 1}
                   </span>
-                  <step.icon className="w-8 h-8 text-primary" />
+                  <step.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-headline font-bold mb-2">{step.title}</h3>
+                <h3 className="text-lg font-headline font-bold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm max-w-[240px] leading-relaxed mb-4 font-body">
                   {step.description}
                 </p>
-                <div className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary uppercase tracking-wider font-body">
-                  {step.benefit}
-                </div>
+                <div className="px-2.5 py-1 rounded bg-primary/10 border border-primary/20 text-[10px] font-mono font-bold text-primary uppercase tracking-wider">{step.benefit}</div>
               </div>
             ))}
           </div>
@@ -73,13 +71,13 @@ export function AnalogSteps() {
               </span>
             </div>
             <p className="mt-4 text-xs text-muted-foreground italic font-body">
-              *Complex multi-jurisdictional cases may require additional forensic cycles.
+              *Complex multi-jurisdictional cases may require additional forensic scan cycles.
             </p>
           </div>
 
           <Button size="lg" asChild className="px-10 h-14 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105 font-body">
             <Link href="#request">
-              Check My Case Probability <ArrowRight className="ml-2 w-5 h-5" />
+              Open a Case <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
         </div>

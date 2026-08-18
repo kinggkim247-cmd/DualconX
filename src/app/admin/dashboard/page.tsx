@@ -196,7 +196,7 @@ export default function AdminDashboardPage() {
                         <TableCell>
                           <div className="flex items-center gap-2">
                             <div className={`w-1.5 h-1.5 rounded-full ${request.status === 'Pending' ? 'bg-amber-500' : 'bg-green-500'} animate-pulse`} />
-                            <span className="text-xs font-medium">{request.status}</span>
+                            <span className="font-mono text-xs font-medium">{request.status}</span>
                           </div>
                         </TableCell>
                         <TableCell className="text-right">
@@ -233,7 +233,7 @@ export default function AdminDashboardPage() {
                 </DialogTitle>
                 <DialogDescription className="flex items-center gap-4 text-xs font-mono text-muted-foreground mt-2">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {new Date(selectedCase.created_at).toLocaleString()}</span>
-                  <span className="flex items-center gap-1 uppercase tracking-tighter bg-white/5 px-2 py-0.5 rounded border border-white/10">Status: {selectedCase.status}</span>
+                  <span className="font-mono flex items-center gap-1 uppercase tracking-tighter bg-white/5 px-2 py-0.5 rounded border border-white/10">Status: {selectedCase.status}</span>
                 </DialogDescription>
               </DialogHeader>
 

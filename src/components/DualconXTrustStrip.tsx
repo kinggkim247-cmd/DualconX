@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -12,7 +12,7 @@ const defaultTrustItems = [
   { id: "consultation", asset_key: "consultation", label: "Confidential Consultation", placeholderId: "client-consultation" },
 ];
 
-export function AnalogTrustStrip() {
+export function DualconXTrustStrip() {
   const [assets, setAssets] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
 

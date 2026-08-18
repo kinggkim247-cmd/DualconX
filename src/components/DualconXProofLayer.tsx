@@ -6,7 +6,7 @@ import { ShieldCheck, FileText, Globe, Scale, ExternalLink, Activity, Loader2 } 
 import { Card, CardContent } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase";
 
-export function AnalogHealProofLayer() {
+export function DualconXProofLayer() {
   const [proofs, setProofs] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -55,7 +55,7 @@ export function AnalogHealProofLayer() {
                 Verified Forensic Results
               </h3>
               <p className="text-sm text-primary font-bold cursor-help border-b border-primary/30">
-                Validated recovery reports available for legal review
+                Validated case reports available for legal review
               </p>
             </div>
             
@@ -99,7 +99,7 @@ export function AnalogHealProofLayer() {
             )}
           </div>
 
-          <div className="bg-card p-8 rounded-3xl border border-white/10 shadow-xl">
+          <div className="bg-card p-6 rounded-xl border border-border">
             <h3 className="text-xl font-headline font-bold mb-6">Institutional Credibility</h3>
             <div className="space-y-6">
               <div className="flex gap-4">
@@ -108,7 +108,7 @@ export function AnalogHealProofLayer() {
                 </div>
                 <div>
                   <div className="text-sm font-bold uppercase tracking-wider mb-1">Entity Registration</div>
-                  <div className="text-muted-foreground text-sm">AnalogHeal Forensic Systems Ltd.</div>
+                  <div className="text-muted-foreground text-sm">DualconX Forensic Systems Ltd.</div>
                   <div className="text-primary font-mono text-xs mt-1">Reg #HE-45293-C1</div>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export function AnalogHealProofLayer() {
               </div>
               <div className="pt-6 border-t border-white/5">
                 <p className="text-xs text-muted-foreground leading-relaxed italic">
-                  *AnalogHeal Recovery Labs operates under strict Swiss digital privacy laws and is a certified participant in the International Cyber Forensics Consortium.
+                  *DualconX Recovery Labs operates under strict Swiss digital privacy laws and is a certified participant in the International Cyber Forensics Consortium.
                 </p>
               </div>
             </div>

@@ -1,37 +1,39 @@
-import { AnalogNavbar } from "@/components/AnalogNavbar";
-import { AnalogHero } from "@/components/AnalogHero";
-import { AnalogHealProofLayer } from "@/components/AnalogHealProofLayer";
-import { AnalogServices } from "@/components/AnalogServices";
-import { AnalogHealMethodology } from "@/components/AnalogHealMethodology";
-import { AnalogSteps } from "@/components/AnalogSteps";
-import { AnalogHealGuarantee } from "@/components/AnalogHealGuarantee";
-import { AnalogTrustStrip } from "@/components/AnalogTrustStrip";
-import { AnalogRecoveryForm } from "@/components/AnalogRecoveryForm";
-import { AnalogTestimonials } from "@/components/AnalogTestimonials";
-import { AnalogKnowledgeHub } from "@/components/AnalogKnowledgeHub";
-import { AnalogContact } from "@/components/AnalogContact";
-import { AnalogFooter } from "@/components/AnalogFooter";
-import { AnalogStickyCTA } from "@/components/AnalogStickyCTA";
+import { DualconXNavbar } from "@/components/DualconXNavbar";
+import { DualconXHero } from "@/components/DualconXHero";
+import { DualconXProofLayer } from "@/components/DualconXProofLayer";
+import { DualconXServices } from "@/components/DualconXServices";
+import { DualconXConfidence } from "@/components/DualconXConfidence";
+import { DualconXMethodology } from "@/components/DualconXMethodology";
+import { DualconXSteps } from "@/components/DualconXSteps";
+import { DualconXDataControl } from "@/components/DualconXDataControl";
+import { DualconXTrustStrip } from "@/components/DualconXTrustStrip";
+import { DualconXRecoveryForm } from "@/components/DualconXRecoveryForm";
+import { DualconXTestimonials } from "@/components/DualconXTestimonials";
+import { DualconXKnowledgeHub } from "@/components/DualconXKnowledgeHub";
+import { DualconXContact } from "@/components/DualconXContact";
+import { DualconXFooter } from "@/components/DualconXFooter";
+import { DualconXStickyCTA } from "@/components/DualconXStickyCTA";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <AnalogNavbar />
+      <DualconXNavbar />
       <main>
-        <AnalogHero />
-        <AnalogHealProofLayer />
-        <AnalogServices />
-        <AnalogHealMethodology />
-        <AnalogSteps />
-        <AnalogHealGuarantee />
-        <AnalogTrustStrip />
-        <AnalogRecoveryForm />
-        <AnalogTestimonials />
-        <AnalogKnowledgeHub />
-        <AnalogContact />
+        <DualconXHero />
+        <DualconXProofLayer />
+        <DualconXServices />
+        <DualconXConfidence />
+        <DualconXMethodology />
+        <DualconXSteps />
+        <DualconXDataControl />
+        <DualconXTrustStrip />
+        <DualconXRecoveryForm />
+        <DualconXTestimonials />
+        <DualconXKnowledgeHub />
+        <DualconXContact />
       </main>
-      <AnalogFooter />
-      <AnalogStickyCTA />
+      <DualconXFooter />
+      <DualconXStickyCTA />
     </div>
   );
 }

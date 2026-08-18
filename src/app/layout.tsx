@@ -2,9 +2,10 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Script from 'next/script';
+import { DualconXGrid } from "@/components/DualconXGrid";
 
 export const metadata: Metadata = {
-  title: 'AnalogHeal Forensics | Expert Crypto & Digital Asset Recovery',
+  title: 'DualconX Forensics | Expert Crypto & Digital Asset Recovery',
   description: 'Professional forensic recovery services for lost or stolen cryptocurrency and digital assets. Trusted worldwide with a 94% success rate.',
 };
 
@@ -45,7 +46,7 @@ export default function RootLayout({
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased selection:bg-primary/30 selection:text-primary-foreground">
         {/* Google Tag Manager (noscript) - Fallback for every page */}
@@ -59,7 +60,14 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         
-        {children}
+        {/* Evidence Grid Background — fixed, full-viewport, behind all content */}
+        <div className="fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+          <DualconXGrid className="w-full h-full opacity-100" />
+        </div>
+
+        <div className="relative z-10">
+          {children}
+        </div>
         
         <Toaster />
 

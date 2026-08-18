@@ -6,7 +6,7 @@ import { Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function AnalogStickyCTA() {
+export function DualconXStickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -53,7 +53,7 @@ export function AnalogStickyCTA() {
           <div className="flex flex-1 items-center justify-center sm:justify-end gap-2 w-full">
             <Button size="lg" asChild className="w-full sm:w-auto h-12 px-8 gap-2 font-bold text-xs bg-primary text-primary-foreground shadow-lg shadow-primary/20 btn-glow-action">
               <Link href="#request">
-                Start My Free Assessment <ArrowRight className="w-4 h-4" />
+                Get a Recovery Assessment <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </div>
