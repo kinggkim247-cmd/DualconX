@@ -28,15 +28,12 @@ export function DualconXHero() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-headline font-bold leading-tight mb-6">
-            DualconX <span className="text-primary">Forensics</span><br />
-            <span className="text-muted-foreground text-3xl md:text-4xl font-medium">
-              Recover Assets from Investment Scams, Bad Brokers, Trading & Romance Scams
-            </span>
+            Find What Happened.<br />
+            <span className="text-primary">Recover What Matters.</span>
           </h1>
 
           <p className="text-muted-foreground text-lg mb-8 max-w-lg font-body leading-relaxed">
-            We scan for evidence, trace what happened, and restore what can be safely reclaimed.
-            Free scan assessment within 24 hours. Confidential case intake.
+            Digital forensics and recovery built to help you understand, restore, and verify your digital evidence.
           </p>
 
           {/* Trust bullets */}
@@ -47,7 +44,7 @@ export function DualconXHero() {
             </div>
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-primary shadow-[0_0_5px_rgba(245,158,11,0.3)]" />
-              <span>Swiss-standard data confidentiality</span>
+              <span>Budapest-based, EU data privacy compliant</span>
             </div>
             <div className="flex items-center gap-3">
               <BarChart3 className="w-5 h-5 text-accent shadow-[0_0_5px_rgba(34,211,238,0.3)]" />
@@ -55,16 +52,27 @@ export function DualconXHero() {
             </div>
           </div>
 
-          {/* CTA Group - Action Color (Gold) */}
+          {/* CTA Group */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" asChild className="h-14 px-8 text-lg font-bold btn-glow-action bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105">
               <Link href="#request">
-                Open a Case <ArrowRight className="ml-2 w-5 h-5" />
+                Start a Case <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-primary/50">
-              <Play className="mr-2 w-5 h-5 fill-current" /> Check Your Device
+            <Button size="lg" variant="outline" asChild className="h-14 px-8 text-lg font-semibold border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-primary/50">
+              <Link href="#process">
+                Explore the Process
+              </Link>
             </Button>
+          </div>
+
+          {/* Trust tagline */}
+          <div className="mt-8 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground/60">
+            <span>Private</span>
+            <span className="w-1 h-1 rounded-full bg-primary/40" />
+            <span>Controlled</span>
+            <span className="w-1 h-1 rounded-full bg-primary/40" />
+            <span>Traceable</span>
           </div>
         </motion.div>
 

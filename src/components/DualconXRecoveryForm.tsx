@@ -186,7 +186,7 @@ export function DualconXRecoveryForm() {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                    <span className="text-sm">End-to-end encrypted communication via Swiss forensic servers.</span>
+                    <span className="text-sm">End-to-end encrypted communication. Data isolated on secure servers in Budapest, Hungary.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />

@@ -19,26 +19,30 @@ export function AegisFooter() {
 
   return (
     <footer className="bg-card/50 border-t border-white/5 pt-0 pb-10">
-      {/* Final Conversion Push */}
-      <div className="relative overflow-hidden py-16 mb-20 border-b border-white/5 bg-primary/5">
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h3 className="text-3xl lg:text-4xl font-headline font-bold mb-4">Don't Leave Your Assets to Chance</h3>
-          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Professional forensic recovery is time-sensitive. Speak with a specialist today for a confidential review of your situation.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild className="w-full sm:w-auto px-10 h-14 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105">
+      {/* Command Centre CTA */}
+      <div className="relative overflow-hidden py-20 mb-20 border-b border-white/5">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-accent/[0.04] pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Intake Available
+            </div>
+            <h3 className="text-3xl lg:text-4xl font-headline font-bold mb-4">Have a Digital Evidence Problem?</h3>
+            <p className="text-muted-foreground text-lg mb-3 max-w-xl mx-auto">
+              Start with the facts. Tell DualconX what happened, and we&apos;ll help determine the right path forward.
+            </p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/50 mb-10">
+              Secure Intake &nbsp;·&nbsp; Clear Communication &nbsp;·&nbsp; Verified Results
+            </p>
+            <Button size="lg" asChild className="h-14 px-10 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105">
               <Link href="#request">
-                Start Recovery Request <ArrowRight className="ml-2 w-5 h-5" />
+                Open a Case <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
-            <div className="flex items-center gap-2 text-sm font-bold text-green-500 uppercase tracking-wider">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Specialists Active Now
-            </div>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[120px] -z-10" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -88,11 +92,11 @@ export function AegisFooter() {
           <div>
             <h4 className="font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-4 text-muted-foreground">
-              <li><Link href="#services" className="hover:text-primary transition-colors">Our Services</Link></li>
-              <li><Link href="#process" className="hover:text-primary transition-colors">Recovery Process</Link></li>
-              <li><Link href="#blog" className="hover:text-primary transition-colors">Knowledge Hub</Link></li>
-              <li><Link href="#request" className="hover:text-primary transition-colors">Submit Request</Link></li>
-              <li><Link href="#contact" className="hover:text-primary transition-colors">Contact Support</Link></li>
+              <li><Link href="#services" className="hover:text-primary transition-colors">Forensic Capabilities</Link></li>
+              <li><Link href="#process" className="hover:text-primary transition-colors">Case Process</Link></li>
+              <li><Link href="#blog" className="hover:text-primary transition-colors">DualconX Knowledge Hub</Link></li>
+              <li><Link href="#request" className="hover:text-primary transition-colors">Open a Case</Link></li>
+              <li><Link href="#contact" className="hover:text-primary transition-colors">Talk to DualconX</Link></li>
             </ul>
           </div>
 
@@ -124,11 +128,11 @@ export function AegisFooter() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <div>© 2020-{mounted ? year : '...'} DualconX Recovery Systems. All rights reserved.</div>
-          <div className="flex gap-6">
-            <span>Certifications:</span>
-            <span className="font-bold text-foreground/50">ISO 27001</span>
-            <span className="font-bold text-foreground/50">HIPAA Compliant</span>
-            <span className="font-bold text-foreground/50">SOC 2 Type II</span>
+          <div className="flex items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
+            <span>● Secure Intake</span>
+            <span>● Case Tracking</span>
+            <span>● Evidence Reporting</span>
+            <span>● Controlled Access</span>
           </div>
         </div>
       </div>

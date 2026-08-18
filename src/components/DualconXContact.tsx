@@ -1,4 +1,4 @@
-import { Mail, Clock, CheckCircle2 } from "lucide-react";
+import { Mail, Clock, MapPin, CheckCircle2 } from "lucide-react";
 
 const benefits = [
   "Industry-leading 94% success rate",
@@ -36,6 +36,19 @@ export function DualconXContact() {
                 <div>
                   <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Hours</div>
                   <div className="text-lg font-semibold">24/7 Forensic Response</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-sm text-muted-foreground uppercase tracking-wider font-bold">Office</div>
+                  <div className="text-base font-semibold leading-relaxed">
+                    Budapest Obuda Gate<br />
+                    Arpad Fejedelem Utja 26-28, 5th Floor<br />
+                    Budapest, Hungary 1023
+                  </div>
                 </div>
               </div>
             </div>

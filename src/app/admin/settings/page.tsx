@@ -131,7 +131,7 @@ export default function SettingsPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {[
-                    { node: "Zürich Alpha", status: "Online", latency: "12ms" },
+                    { node: "Budapest Primary", status: "Online", latency: "12ms" },
                     { node: "Singapore Beta", status: "Online", latency: "142ms" },
                   ].map((cluster) => (
                     <div key={cluster.node} className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">

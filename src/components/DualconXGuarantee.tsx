@@ -16,7 +16,7 @@ const guarantees = [
   },
   {
     title: "Absolute Confidentiality",
-    description: "Your case data is stored on encrypted Swiss-based servers. Your identity and the details of your loss remain 100% private under strict privacy laws.",
+    description: "Your case data is stored on encrypted servers in Budapest, Hungary. Your identity and the details of your loss remain 100% private under strict data protection laws.",
     icon: Lock,
   },
   {

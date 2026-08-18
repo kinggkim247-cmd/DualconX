@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -154,7 +154,7 @@ export function AegisRecoveryForm() {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0 shadow-[0_0_5px_rgba(59,130,246,0.8)]" />
-                    <span className="text-sm">End-to-end encrypted communication via Swiss servers.</span>
+                    <span className="text-sm">End-to-end encrypted communication. Data isolated on secure servers in Budapest, Hungary.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0 shadow-[0_0_5px_rgba(59,130,246,0.8)]" />

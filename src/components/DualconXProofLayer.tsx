@@ -127,7 +127,7 @@ export function DualconXProofLayer() {
               </div>
               <div className="pt-6 border-t border-white/5">
                 <p className="text-xs text-muted-foreground leading-relaxed italic">
-                  *DualconX Recovery Labs operates under strict Swiss digital privacy laws and is a certified participant in the International Cyber Forensics Consortium.
+                  *DualconX Recovery Labs is registered and operates in compliance with digital privacy and data protection regulations applicable in Hungary and the European Union.
                 </p>
               </div>
             </div>

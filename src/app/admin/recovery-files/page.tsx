@@ -276,7 +276,7 @@ export default function RecoveryFilesPage() {
                 <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-[10px] text-muted-foreground italic flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-green-500" />
-                    Encrypted Case File | Swiss Lab Uplink Secure
+                    Encrypted Case File | Budapest Lab Uplink Secure
                   </div>
                   <div className="flex gap-2 w-full sm:w-auto">
                     <Button onClick={() => setSelectedCase(null)} variant="secondary" className="flex-1 sm:flex-none">

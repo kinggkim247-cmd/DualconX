@@ -37,10 +37,10 @@ const legalDocs = {
   privacy: {
     title: "Data Privacy Policy",
     icon: Lock,
-    description: "Swiss-standard data isolation and encryption protocols for case integrity.",
+    description: "Enterprise-grade data isolation and encryption protocols for case integrity.",
     content: `
       **1. Data Isolation**
-      All submitted intake data is isolated on encrypted Swiss-based servers. We utilize RSA-4096 encryption for sensitive diagnostic files.
+      All submitted intake data is isolated on encrypted servers based in Budapest, Hungary. We utilize RSA-4096 encryption for sensitive diagnostic files.
 
       **2. Retention Policy**
       Diagnostic data is retained for the duration of the investigation plus 90 days for audit purposes, after which it is purged from our primary forensic clusters unless legal holds are in place.
@@ -48,8 +48,8 @@ const legalDocs = {
       **3. Third-Party Sharing**
       We do not sell data. We only share sanitized forensic reports with verified legal partners or exchange compliance teams upon explicit client authorization.
 
-      **4. SOC 2 Compliance**
-      Our infrastructure adheres to SOC 2 Type II standards, ensuring strict internal controls over data access and network security.
+      **4. Data Security**
+      Our infrastructure adheres to enterprise data security standards, ensuring strict internal controls over data access and network security.
     `
   },
   compliance: {
@@ -57,17 +57,17 @@ const legalDocs = {
     icon: ShieldCheck,
     description: "International standards and institutional certifications of the DualconX Laboratory.",
     content: `
-      **1. FINMA Adherence**
-      DualconX Forensic Systems Ltd. operates under the digital asset guidelines established by the Swiss Financial Market Supervisory Authority (FINMA).
+      **1. Registration**
+      DualconX Forensic Systems Ltd. is registered and operates in compliance with the digital asset and data protection regulations applicable in Hungary and the European Union.
 
-      **2. ISO 27001 Certification**
-      The laboratory maintains ISO 27001 certification for Information Security Management Systems (ISMS), ensuring global standard protection.
+      **2. Information Security**
+      The laboratory maintains enterprise-grade information security management practices, ensuring global standard protection for all case data.
 
       **3. VASP Cooperation**
-      We maintain emergency communication channels with Tier-1 exchanges. Our forensic reports are formatted to satisfy international AML (Anti-Money Laundering) and KYC (Know Your Customer) requirements.
+      We maintain communication channels with Tier-1 exchanges. Our forensic reports are formatted to satisfy international AML (Anti-Money Laundering) and KYC (Know Your Customer) requirements.
 
       **4. Forensic Integrity**
-      Our lead analysts are certified in blockchain intelligence (Chainalysis/Elliptic) and follow INTERPOL-compliant digital evidence gathering protocols.
+      Our lead analysts are trained in blockchain intelligence and follow internationally recognized digital evidence gathering protocols.
     `
   },
   conflict: {
@@ -115,26 +115,30 @@ export function DualconXFooter() {
 
   return (
     <footer className="bg-card/50 border-t border-white/5 pt-0 pb-10">
-      {/* Final Conversion Push */}
-      <div className="relative overflow-hidden py-16 mb-20 border-b border-white/5 bg-primary/5">
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h3 className="text-3xl lg:text-4xl font-headline font-bold mb-4">Protect Your Digital Rights Today</h3>
-          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Professional forensic case intake is highly time-sensitive. Speak with our lab specialists today for a confidential scan of your situation.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild className="w-full sm:w-auto px-10 h-14 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105">
+      {/* Command Centre CTA */}
+      <div className="relative overflow-hidden py-20 mb-20 border-b border-white/5">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-accent/[0.04] pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Intake Available
+            </div>
+            <h3 className="text-3xl lg:text-4xl font-headline font-bold mb-4">Have a Digital Evidence Problem?</h3>
+            <p className="text-muted-foreground text-lg mb-3 max-w-xl mx-auto">
+              Start with the facts. Tell DualconX what happened, and we&apos;ll help determine the right path forward.
+            </p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/50 mb-10">
+              Secure Intake &nbsp;·&nbsp; Clear Communication &nbsp;·&nbsp; Verified Results
+            </p>
+            <Button size="lg" asChild className="h-14 px-10 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all hover:scale-105">
               <Link href="#request">
-                Start a Case <ArrowRight className="ml-2 w-5 h-5" />
+                Open a Case <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
-            <div className="flex items-center gap-2 text-sm font-bold text-green-500 uppercase tracking-wider">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Lab Analysts Active
-            </div>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[120px] -z-10" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -189,11 +193,11 @@ export function DualconXFooter() {
           <div>
             <h4 className="font-bold text-lg mb-6">Laboratory</h4>
             <ul className="space-y-4 text-muted-foreground">
-              <li><Link href="#services" className="hover:text-primary transition-colors">Forensic Services</Link></li>
-              <li><Link href="#process" className="hover:text-primary transition-colors">Methodology</Link></li>
-              <li><Link href="#blog" className="hover:text-primary transition-colors">Intelligence Hub</Link></li>
-              <li><Link href="#request" className="hover:text-primary transition-colors">Submit Forensic Case</Link></li>
-              <li><Link href="#contact" className="hover:text-primary transition-colors">Support Lab</Link></li>
+              <li><Link href="#services" className="hover:text-primary transition-colors">Forensic Capabilities</Link></li>
+              <li><Link href="#process" className="hover:text-primary transition-colors">Case Process</Link></li>
+              <li><Link href="#blog" className="hover:text-primary transition-colors">DualconX Knowledge Hub</Link></li>
+              <li><Link href="#request" className="hover:text-primary transition-colors">Open a Case</Link></li>
+              <li><Link href="#contact" className="hover:text-primary transition-colors">Talk to DualconX</Link></li>
             </ul>
           </div>
 
@@ -252,12 +256,12 @@ export function DualconXFooter() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>© 2020-{mounted ? year : '...'} DualconX Forensics & Evidence Labs. All rights reserved.</div>
-          <div className="flex gap-6">
-            <span>Certifications:</span>
-            <span className="font-bold text-foreground/50">ISO 27001</span>
-            <span className="font-bold text-foreground/50">FINMA Registered</span>
-            <span className="font-bold text-foreground/50">SOC 2 Type II</span>
+          <div>© 2020-{mounted ? year : '...'} DualconX Forensics &amp; Evidence Labs. All rights reserved.</div>
+          <div className="flex items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
+            <span>● Secure Intake</span>
+            <span>● Case Tracking</span>
+            <span>● Evidence Reporting</span>
+            <span>● Controlled Access</span>
           </div>
         </div>
       </div>
@@ -292,7 +296,7 @@ export function DualconXFooter() {
               <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-[10px] text-muted-foreground italic flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-green-500" />
-                  Authorized Forensic Protocol | Swiss Secure
+                  Authorized Forensic Protocol | Budapest, Hungary
                 </div>
                 <Button onClick={() => setSelectedDoc(null)} variant="secondary" className="w-full sm:w-auto">
                   Close Document

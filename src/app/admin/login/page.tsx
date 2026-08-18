@@ -137,7 +137,7 @@ export default function AdminLoginPage() {
         </Card>
 
         <p className="text-center text-[10px] text-muted-foreground/60 uppercase tracking-widest leading-relaxed">
-          Authorized personnel only. All access attempts are logged and monitored under Swiss digital privacy laws.
+          Authorized personnel only. All access attempts are logged and monitored in accordance with EU data protection regulations.
         </p>
       </div>
     </div>

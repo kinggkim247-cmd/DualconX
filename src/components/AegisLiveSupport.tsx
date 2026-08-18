@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { MessageSquare, X, ShieldCheck, MessageCircle, Phone } from "lucide-react";
@@ -66,7 +66,7 @@ export function AegisLiveSupport() {
 
           <div className="pt-2 flex items-center justify-center gap-1.5 text-[9px] text-muted-foreground opacity-60 font-body">
             <ShieldCheck className="w-3 h-3 text-green-500" />
-            Swiss-encrypted secure interaction
+            Budapest-based, encrypted secure interaction
           </div>
         </div>
       </div>

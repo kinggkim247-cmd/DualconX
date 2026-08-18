@@ -4,26 +4,26 @@ import Link from "next/link";
 
 const steps = [
   {
-    title: "Submit",
-    description: "Tell us what happened.",
+    title: "Intake",
+    description: "Capture the situation, device details, and recovery objectives.",
     benefit: "Phase 01",
     icon: ClipboardList,
   },
   {
     title: "Examine",
-    description: "We inspect the available digital evidence.",
+    description: "Identify available data, damage, and relevant evidence.",
     benefit: "Phase 02",
     icon: Search,
   },
   {
     title: "Recover",
-    description: "Recover what can be safely restored.",
+    description: "Restore accessible information while preserving the original evidence.",
     benefit: "Phase 03",
     icon: Settings,
   },
   {
     title: "Verify",
-    description: "Review the results before delivery.",
+    description: "Review recovered results and document what was found.",
     benefit: "Phase 04",
     icon: CheckCircle,
   },
@@ -34,9 +34,9 @@ export function DualconXSteps() {
     <section id="process" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">One Case. One Clear Process.</h2>
+          <h2 className="text-3xl lg:text-5xl font-headline font-bold mb-6">From Incident to Evidence</h2>
           <p className="text-muted-foreground text-lg">
-            One case. Four clear phases. We keep you informed from initial scan through to verified restoration.
+            A structured process designed to keep every stage understandable, controlled, and accountable.
           </p>
         </div>
 

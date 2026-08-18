@@ -89,18 +89,18 @@ export function DualconXMethodology() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+        <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 opacity-50 hover:opacity-100 transition-all duration-700">
           <div className="flex items-center gap-2 font-bold text-sm tracking-tighter">
-            <span className="text-primary text-lg">●</span> CHAINALYSIS PARTNER
+            <span className="text-primary text-lg">●</span> SECURE INTAKE
           </div>
           <div className="flex items-center gap-2 font-bold text-sm tracking-tighter">
-            <span className="text-primary text-lg">●</span> ELLIPTIC CERTIFIED
+            <span className="text-primary text-lg">●</span> CASE TRACKING
           </div>
           <div className="flex items-center gap-2 font-bold text-sm tracking-tighter">
-            <span className="text-primary text-lg">●</span> INTERPOL COMPLIANT
+            <span className="text-primary text-lg">●</span> EVIDENCE REPORTING
           </div>
           <div className="flex items-center gap-2 font-bold text-sm tracking-tighter">
-            <span className="text-primary text-lg">●</span> SWISS FINMA REGISTERED
+            <span className="text-primary text-lg">●</span> CONTROLLED ACCESS
           </div>
         </div>
       </div>
