@@ -172,7 +172,7 @@ export function DualconXFooter() {
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>1201 Digital Forensics Tower, Zürich, CH-8001</span>
+                <span>Budapest Obuda Gate, Arpad Fejedelem Utja 26-28, 5th Floor, Budapest, Hungary 1023</span>
               </div>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <Building className="w-4 h-4 text-primary shrink-0 mt-0.5" />

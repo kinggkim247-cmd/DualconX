@@ -119,8 +119,9 @@ export function DualconXProofLayer() {
                 <div>
                   <div className="text-sm font-bold uppercase tracking-wider mb-1">Laboratory HQ</div>
                   <div className="text-muted-foreground text-sm leading-relaxed">
-                    1201 Digital Forensics Tower<br />
-                    Zürich, Switzerland, 8001
+                    Budapest Obuda Gate<br />
+                    Arpad Fejedelem Utja 26-28, 5th Floor<br />
+                    Budapest, Hungary 1023
                   </div>
                 </div>
               </div>
