@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -21,6 +21,7 @@ import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 
 const assetTypes = [
+  { key: "hero-bg", label: "Hero Background Image", hint: "hero image" },
   { key: "brand-logo", label: "Institutional Brand Logo", hint: "company logo" },
   { key: "expert-team", label: "Expert Team", hint: "cybersecurity forensics" },
   { key: "secure-ops", label: "Secure Operations Center", hint: "server security" },
