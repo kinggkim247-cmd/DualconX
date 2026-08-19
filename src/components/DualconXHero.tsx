@@ -90,11 +90,11 @@ export function DualconXHero() {
     >
       {/* Spotlight that follows cursor */}
       <motion.div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-screen"
+        className="absolute inset-[-50%] z-0 pointer-events-none opacity-40"
         style={{
           background: "radial-gradient(circle at center, rgba(34,211,238,0.15) 0%, transparent 40%)",
-          left: useTransform(smoothX, [-1, 1], ["-20%", "20%"]),
-          top: useTransform(smoothY, [-1, 1], ["-20%", "20%"]),
+          x: useTransform(smoothX, [-1, 1], ["-10%", "10%"]),
+          y: useTransform(smoothY, [-1, 1], ["-10%", "10%"]),
         }}
       />
 
@@ -104,7 +104,7 @@ export function DualconXHero() {
         style={{ x: bgShiftX, y: bgShiftY }}
       >
         <motion.div 
-          className="w-full h-full opacity-40 mix-blend-luminosity"
+          className="w-full h-full opacity-40"
           initial={{ scale: 1, x: "0%" }}
           animate={{ scale: 1.08, x: "-2%" }}
           transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
@@ -112,6 +112,8 @@ export function DualconXHero() {
             backgroundImage: `url('${bgImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            filter: "grayscale(100%)",
+            willChange: "transform",
           }}
         />
       </motion.div>
@@ -172,7 +174,7 @@ export function DualconXHero() {
             activeCard === card.id && (
               <motion.div
                 key={card.id}
-                className="absolute bg-black/60 border border-cyan-500/30 backdrop-blur-md px-4 py-3 rounded-lg shadow-[0_0_15px_rgba(34,211,238,0.1)]"
+                className="absolute bg-black/90 border border-cyan-500/30 px-4 py-3 rounded-lg shadow-[0_0_15px_rgba(34,211,238,0.1)]"
                 style={{ top: card.top, left: card.left }}
                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
