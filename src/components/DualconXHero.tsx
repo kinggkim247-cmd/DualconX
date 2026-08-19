@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, Activity } from "lucide-react";
 import Link from "next/link";
@@ -17,6 +17,40 @@ const floatingCards = [
 export function DualconXHero() {
   const [bgImage, setBgImage] = useState<string>("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80");
   const [activeCard, setActiveCard] = useState<number | null>(null);
+
+  const containerRef = useRef<HTMLElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth springs for the parallax effect
+  const springConfig = { damping: 25, stiffness: 100 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  // Parallax transforms
+  const bgShiftX = useTransform(smoothX, [-1, 1], [-10, 10]);
+  const bgShiftY = useTransform(smoothY, [-1, 1], [-10, 10]);
+  
+  const nodesShiftX = useTransform(smoothX, [-1, 1], [-20, 20]);
+  const nodesShiftY = useTransform(smoothY, [-1, 1], [-20, 20]);
+
+  const contentShiftX = useTransform(smoothX, [-1, 1], [15, -15]);
+  const contentShiftY = useTransform(smoothY, [-1, 1], [15, -15]);
+
+  // Spotlight position
+  const spotlightX = useTransform(smoothX, [-1, 1], ["0%", "100%"]);
+  const spotlightY = useTransform(smoothY, [-1, 1], ["0%", "100%"]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    // Normalize to -1 to 1 range
+    const x = (clientX / innerWidth) * 2 - 1;
+    const y = (clientY / innerHeight) * 2 - 1;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
 
   useEffect(() => {
     // Fetch hero background from admin trust assets
@@ -49,25 +83,46 @@ export function DualconXHero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-background min-h-[90vh] flex items-center pt-20 pb-24">
-      
-      {/* LAYER 1: Background Image with Cinematic Pan/Zoom */}
+    <section 
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="relative overflow-hidden bg-background min-h-[90vh] flex items-center pt-20 pb-24"
+    >
+      {/* Spotlight that follows cursor */}
       <motion.div 
-        className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity"
-        initial={{ scale: 1, x: "0%" }}
-        animate={{ scale: 1.08, x: "-2%" }}
-        transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+        className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-screen"
         style={{
-          backgroundImage: `url('${bgImage}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          background: "radial-gradient(circle at center, rgba(34,211,238,0.15) 0%, transparent 40%)",
+          left: useTransform(smoothX, [-1, 1], ["-20%", "20%"]),
+          top: useTransform(smoothY, [-1, 1], ["-20%", "20%"]),
         }}
       />
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
 
-      {/* LAYER 2: Evidence Nodes (Subtle cyan connecting lines and dots) */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+      {/* LAYER 1: Background Image with Cinematic Pan/Zoom + Parallax */}
+      <motion.div 
+        className="absolute inset-[-5%] z-0"
+        style={{ x: bgShiftX, y: bgShiftY }}
+      >
+        <motion.div 
+          className="w-full h-full opacity-40 mix-blend-luminosity"
+          initial={{ scale: 1, x: "0%" }}
+          animate={{ scale: 1.08, x: "-2%" }}
+          transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+          style={{
+            backgroundImage: `url('${bgImage}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+      </motion.div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-background via-background/90 to-background/60 pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-transparent to-background pointer-events-none" />
+
+      {/* LAYER 2: Evidence Nodes with Parallax */}
+      <motion.div 
+        className="absolute inset-[-10%] z-0 pointer-events-none opacity-30"
+        style={{ x: nodesShiftX, y: nodesShiftY }}
+      >
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           {/* Static thin lines representing connections */}
           <path d="M 100 200 L 300 150 L 500 300 L 800 250 L 1200 400" stroke="rgba(34,211,238,0.3)" strokeWidth="1" fill="none" />
@@ -97,7 +152,7 @@ export function DualconXHero() {
             />
           </div>
         ))}
-      </div>
+      </motion.div>
 
       {/* LAYER 3: Data Scan Line */}
       <motion.div
@@ -107,8 +162,11 @@ export function DualconXHero() {
         transition={{ duration: 8, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
       />
 
-      {/* LAYER 4: Intelligence Cards */}
-      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
+      {/* LAYER 4: Intelligence Cards with inverse parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0 pointer-events-none hidden md:block"
+        style={{ x: contentShiftX, y: contentShiftY }}
+      >
         <AnimatePresence>
           {floatingCards.map((card) => (
             activeCard === card.id && (
@@ -130,16 +188,16 @@ export function DualconXHero() {
             )
           ))}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* CONTENT LAYER */}
-      <div className="container mx-auto px-6 relative z-10 flex flex-col items-start pt-10">
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-start pt-10 pointer-events-none">
         
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+          className="max-w-2xl pointer-events-auto"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono font-semibold mb-8 uppercase tracking-wide">
             <span className="relative flex h-2 w-2">
