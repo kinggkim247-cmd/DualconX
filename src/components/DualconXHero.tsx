@@ -17,6 +17,16 @@ const floatingCards = [
 export function DualconXHero() {
   const [bgImage, setBgImage] = useState<string>("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80");
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [heroSettings, setHeroSettings] = useState<any>({
+    title: "Recover Your Lost Digital Assets.",
+    description: "DualconX provides professional digital forensics and recovery for inaccessible wallets, damaged devices, lost credentials, and critical digital data.",
+    primary_cta: "Request a Case Assessment",
+    secondary_cta: "Explore the Process",
+    is_animation_enabled: true,
+    animation_style: "Evidence Network",
+    animation_intensity: 50,
+    overlay_darkness: 60,
+  });
 
   const containerRef = useRef<HTMLElement>(null);
   const mouseX = useMotionValue(0);
@@ -54,18 +64,30 @@ export function DualconXHero() {
 
   useEffect(() => {
     // Fetch hero background from admin trust assets
-    const fetchHeroImage = async () => {
-      const { data, error } = await supabase
+    const fetchHeroData = async () => {
+      const { data: imgData, error: imgError } = await supabase
         .from("operational_proofs")
         .select("image_url")
         .eq("asset_key", "hero-bg")
         .single();
       
-      if (!error && data?.image_url) {
-        setBgImage(data.image_url);
+      if (!imgError && imgData?.image_url) {
+        setBgImage(imgData.image_url);
+      }
+
+      const { data: settingsData, error: settingsError } = await supabase
+        .from("hero_settings")
+        .select("*")
+        .single();
+      
+      if (!settingsError && settingsData) {
+        setHeroSettings({
+          ...settingsData,
+          title: settingsData.title?.replace(/\\n/g, '\n') // Handle potential line breaks
+        });
       }
     };
-    fetchHeroImage();
+    fetchHeroData();
   }, []);
 
   // Card rotation logic
@@ -106,8 +128,8 @@ export function DualconXHero() {
         <motion.div 
           className="w-full h-full opacity-40"
           initial={{ scale: 1, x: "0%" }}
-          animate={{ scale: 1.08, x: "-2%" }}
-          transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+          animate={{ scale: heroSettings.is_animation_enabled ? 1.08 : 1, x: heroSettings.is_animation_enabled ? "-2%" : "0%" }}
+          transition={{ duration: 30 / (heroSettings.animation_intensity / 50 || 1), repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           style={{
             backgroundImage: `url('${bgImage}')`,
             backgroundSize: "cover",
@@ -117,52 +139,72 @@ export function DualconXHero() {
           }}
         />
       </motion.div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-background via-background/90 to-background/60 pointer-events-none" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-transparent to-background pointer-events-none" />
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-1000"
+        style={{ 
+          background: `linear-gradient(to right, hsl(var(--background)) 0%, hsla(var(--background), 0.9) 50%, hsla(var(--background), 0.6) 100%)`,
+          opacity: heroSettings.overlay_darkness / 100
+        }} 
+      />
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-1000"
+        style={{ 
+          background: `linear-gradient(to bottom, hsla(var(--background), 0.4) 0%, transparent 50%, hsl(var(--background)) 100%)`,
+          opacity: heroSettings.overlay_darkness / 100
+        }} 
+      />
 
       {/* LAYER 2: Evidence Nodes with Parallax */}
-      <motion.div 
-        className="absolute inset-[-10%] z-0 pointer-events-none opacity-30"
-        style={{ x: nodesShiftX, y: nodesShiftY }}
-      >
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          {/* Static thin lines representing connections */}
-          <path d="M 100 200 L 300 150 L 500 300 L 800 250 L 1200 400" stroke="rgba(34,211,238,0.3)" strokeWidth="1" fill="none" />
-          <path d="M 200 500 L 400 400 L 600 600 L 1000 500" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" strokeDasharray="4 4" />
-          <path d="M 700 100 L 900 200 L 1100 150" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" />
-        </svg>
+      {heroSettings.is_animation_enabled && heroSettings.animation_style !== "Minimal Cinematic" && (
+        <motion.div 
+          className="absolute inset-[-10%] z-0 pointer-events-none opacity-30"
+          style={{ x: nodesShiftX, y: nodesShiftY }}
+        >
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            {/* Static thin lines representing connections */}
+            {heroSettings.animation_style !== "Data Flow" && (
+              <>
+                <path d="M 100 200 L 300 150 L 500 300 L 800 250 L 1200 400" stroke="rgba(34,211,238,0.3)" strokeWidth="1" fill="none" />
+                <path d="M 200 500 L 400 400 L 600 600 L 1000 500" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" strokeDasharray="4 4" />
+                <path d="M 700 100 L 900 200 L 1100 150" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" />
+              </>
+            )}
+          </svg>
 
-        {/* Pulsing Nodes */}
-        {[
-          { top: "200px", left: "100px", delay: 0 },
-          { top: "150px", left: "300px", delay: 1 },
-          { top: "300px", left: "500px", delay: 2 },
-          { top: "250px", left: "800px", delay: 1.5 },
-          { top: "400px", left: "1200px", delay: 0.5 },
-          { top: "500px", left: "200px", delay: 2.5 },
-          { top: "400px", left: "400px", delay: 0.8 },
-          { top: "600px", left: "600px", delay: 1.2 },
-        ].map((node, i) => (
-          <div key={i} className="absolute" style={{ top: node.top, left: node.left }}>
-            <motion.div
-              className="w-1.5 h-1.5 rounded-full bg-cyan-400"
-              animate={{
-                boxShadow: ["0 0 0px rgba(34,211,238,0)", "0 0 15px rgba(34,211,238,0.8)", "0 0 0px rgba(34,211,238,0)"],
-                opacity: [0.5, 1, 0.5]
-              }}
-              transition={{ duration: 3, repeat: Infinity, delay: node.delay }}
-            />
-          </div>
-        ))}
-      </motion.div>
+          {/* Pulsing Nodes */}
+          {[
+            { top: "200px", left: "100px", delay: 0 },
+            { top: "150px", left: "300px", delay: 1 },
+            { top: "300px", left: "500px", delay: 2 },
+            { top: "250px", left: "800px", delay: 1.5 },
+            { top: "400px", left: "1200px", delay: 0.5 },
+            { top: "500px", left: "200px", delay: 2.5 },
+            { top: "400px", left: "400px", delay: 0.8 },
+            { top: "600px", left: "600px", delay: 1.2 },
+          ].map((node, i) => (
+            <div key={i} className="absolute" style={{ top: node.top, left: node.left }}>
+              <motion.div
+                className="w-1.5 h-1.5 rounded-full bg-cyan-400"
+                animate={{
+                  boxShadow: ["0 0 0px rgba(34,211,238,0)", "0 0 15px rgba(34,211,238,0.8)", "0 0 0px rgba(34,211,238,0)"],
+                  opacity: [0.5, 1, 0.5]
+                }}
+                transition={{ duration: 3 / (heroSettings.animation_intensity / 50 || 1), repeat: Infinity, delay: node.delay }}
+              />
+            </div>
+          ))}
+        </motion.div>
+      )}
 
       {/* LAYER 3: Data Scan Line */}
-      <motion.div
-        className="absolute left-0 right-0 h-[2px] bg-cyan-500/50 z-0 pointer-events-none shadow-[0_0_20px_rgba(34,211,238,0.6)]"
-        initial={{ top: "-10%", opacity: 0 }}
-        animate={{ top: "110%", opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
-      />
+      {heroSettings.is_animation_enabled && (heroSettings.animation_style === "Forensic Scan" || heroSettings.animation_style === "Evidence Network") && (
+        <motion.div
+          className="absolute left-0 right-0 h-[2px] bg-cyan-500/50 z-0 pointer-events-none shadow-[0_0_20px_rgba(34,211,238,0.6)]"
+          initial={{ top: "-10%", opacity: 0 }}
+          animate={{ top: "110%", opacity: [0, 1, 1, 0] }}
+          transition={{ duration: 8 / (heroSettings.animation_intensity / 50 || 1), repeat: Infinity, ease: "linear", repeatDelay: 4 }}
+        />
+      )}
 
       {/* LAYER 4: Intelligence Cards with inverse parallax */}
       <motion.div 
@@ -209,9 +251,15 @@ export function DualconXHero() {
             CASE ANALYSIS • ACTIVE
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-headline font-bold leading-[1.1] mb-6 tracking-tight text-white drop-shadow-lg">
-            Recover Your Lost<br />
-            <span className="text-cyan-400">Digital Assets.</span>
+          <h1 className="text-5xl md:text-7xl font-headline font-bold leading-[1.1] mb-6 tracking-tight text-white drop-shadow-lg whitespace-pre-wrap">
+            {heroSettings.title?.includes('.') ? (
+              <>
+                {heroSettings.title.split('.')[0]}.<br />
+                <span className="text-cyan-400">{heroSettings.title.split('.').slice(1).join('.')}</span>
+              </>
+            ) : (
+              heroSettings.title
+            )}
           </h1>
 
           <p className="text-xl md:text-2xl font-semibold mb-6 text-white/90 font-headline drop-shadow-md">
@@ -219,7 +267,7 @@ export function DualconXHero() {
           </p>
 
           <p className="text-white/70 text-lg mb-10 max-w-lg font-body leading-relaxed drop-shadow">
-            DualconX provides professional digital forensics and recovery for inaccessible wallets, damaged devices, lost credentials, and critical digital data.
+            {heroSettings.description}
           </p>
 
           {/* Trust bullets */}
@@ -242,12 +290,12 @@ export function DualconXHero() {
           <div className="flex flex-col sm:flex-row gap-5">
             <Button size="lg" asChild className="h-14 px-8 text-lg font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)] bg-cyan-500 text-black hover:bg-cyan-400 transition-all hover:scale-105 border border-cyan-400">
               <Link href="#request">
-                Request a Case Assessment <ArrowRight className="ml-2 w-5 h-5" />
+                {heroSettings.primary_cta} <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="h-14 px-8 text-lg font-semibold border-white/20 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:border-cyan-500/50 text-white">
               <Link href="#process">
-                Explore the Process
+                {heroSettings.secondary_cta}
               </Link>
             </Button>
           </div>
