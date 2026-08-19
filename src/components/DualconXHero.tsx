@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ShieldCheck, Activity } from "lucide-react";
 import Link from "next/link";
@@ -31,6 +31,25 @@ export function DualconXHero() {
   const containerRef = useRef<HTMLElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  
+  const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLowPower, setIsLowPower] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+
+    // Rough heuristic for low-power devices
+    if ((navigator.hardwareConcurrency || 8) <= 4) {
+      setIsLowPower(true);
+    }
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const disableHeavyAnimations = shouldReduceMotion || isLowPower || !heroSettings.is_animation_enabled;
 
   // Smooth springs for the parallax effect
   const springConfig = { damping: 25, stiffness: 100 };
@@ -52,7 +71,7 @@ export function DualconXHero() {
   const spotlightY = useTransform(smoothY, [-1, 1], ["0%", "100%"]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || disableHeavyAnimations || isMobile) return;
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
     // Normalize to -1 to 1 range
@@ -128,7 +147,7 @@ export function DualconXHero() {
         <motion.div 
           className="w-full h-full opacity-40"
           initial={{ scale: 1, x: "0%" }}
-          animate={{ scale: heroSettings.is_animation_enabled ? 1.08 : 1, x: heroSettings.is_animation_enabled ? "-2%" : "0%" }}
+          animate={{ scale: !disableHeavyAnimations ? 1.08 : 1, x: !disableHeavyAnimations ? "-2%" : "0%" }}
           transition={{ duration: 30 / (heroSettings.animation_intensity / 50 || 1), repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           style={{
             backgroundImage: `url('${bgImage}')`,
@@ -155,24 +174,31 @@ export function DualconXHero() {
       />
 
       {/* LAYER 2: Evidence Nodes with Parallax */}
-      {heroSettings.is_animation_enabled && heroSettings.animation_style !== "Minimal Cinematic" && (
+      {!shouldReduceMotion && heroSettings.is_animation_enabled && heroSettings.animation_style !== "Minimal Cinematic" && (
         <motion.div 
           className="absolute inset-[-10%] z-0 pointer-events-none opacity-30"
           style={{ x: nodesShiftX, y: nodesShiftY }}
         >
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             {/* Static thin lines representing connections */}
-            {heroSettings.animation_style !== "Data Flow" && (
+            {heroSettings.animation_style !== "Data Flow" && !isMobile && (
               <>
                 <path d="M 100 200 L 300 150 L 500 300 L 800 250 L 1200 400" stroke="rgba(34,211,238,0.3)" strokeWidth="1" fill="none" />
                 <path d="M 200 500 L 400 400 L 600 600 L 1000 500" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" strokeDasharray="4 4" />
                 <path d="M 700 100 L 900 200 L 1100 150" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" />
               </>
             )}
+            {heroSettings.animation_style !== "Data Flow" && isMobile && (
+              <path d="M 50 150 L 200 300 L 350 200" stroke="rgba(34,211,238,0.2)" strokeWidth="1" fill="none" />
+            )}
           </svg>
 
           {/* Pulsing Nodes */}
-          {[
+          {(isMobile ? [
+            { top: "150px", left: "50px", delay: 0 },
+            { top: "300px", left: "200px", delay: 1 },
+            { top: "200px", left: "350px", delay: 2 }
+          ] : [
             { top: "200px", left: "100px", delay: 0 },
             { top: "150px", left: "300px", delay: 1 },
             { top: "300px", left: "500px", delay: 2 },
@@ -181,7 +207,7 @@ export function DualconXHero() {
             { top: "500px", left: "200px", delay: 2.5 },
             { top: "400px", left: "400px", delay: 0.8 },
             { top: "600px", left: "600px", delay: 1.2 },
-          ].map((node, i) => (
+          ]).map((node, i) => (
             <div key={i} className="absolute" style={{ top: node.top, left: node.left }}>
               <motion.div
                 className="w-1.5 h-1.5 rounded-full bg-cyan-400"
@@ -197,7 +223,7 @@ export function DualconXHero() {
       )}
 
       {/* LAYER 3: Data Scan Line */}
-      {heroSettings.is_animation_enabled && (heroSettings.animation_style === "Forensic Scan" || heroSettings.animation_style === "Evidence Network") && (
+      {!shouldReduceMotion && !isMobile && heroSettings.is_animation_enabled && (heroSettings.animation_style === "Forensic Scan" || heroSettings.animation_style === "Evidence Network") && (
         <motion.div
           className="absolute left-0 right-0 h-[2px] bg-cyan-500/50 z-0 pointer-events-none shadow-[0_0_20px_rgba(34,211,238,0.6)]"
           initial={{ top: "-10%", opacity: 0 }}
@@ -207,32 +233,34 @@ export function DualconXHero() {
       )}
 
       {/* LAYER 4: Intelligence Cards with inverse parallax */}
-      <motion.div 
-        className="absolute inset-0 z-0 pointer-events-none hidden md:block"
-        style={{ x: contentShiftX, y: contentShiftY }}
-      >
-        <AnimatePresence>
-          {floatingCards.map((card) => (
-            activeCard === card.id && (
-              <motion.div
-                key={card.id}
-                className="absolute bg-black/90 border border-cyan-500/30 px-4 py-3 rounded-lg shadow-[0_0_15px_rgba(34,211,238,0.1)]"
-                style={{ top: card.top, left: card.left }}
-                initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest mb-1">{card.title}</div>
-                <div className="text-xs font-bold text-white flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  {card.text}
-                </div>
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      {!isMobile && !disableHeavyAnimations && (
+        <motion.div 
+          className="absolute inset-0 z-0 pointer-events-none hidden md:block"
+          style={{ x: contentShiftX, y: contentShiftY }}
+        >
+          <AnimatePresence>
+            {floatingCards.map((card) => (
+              activeCard === card.id && (
+                <motion.div
+                  key={card.id}
+                  className="absolute bg-black/90 border border-cyan-500/30 px-4 py-3 rounded-lg shadow-[0_0_15px_rgba(34,211,238,0.1)]"
+                  style={{ top: card.top, left: card.left }}
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest mb-1">{card.title}</div>
+                  <div className="text-xs font-bold text-white flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                    {card.text}
+                  </div>
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      )}
 
       {/* CONTENT LAYER */}
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-start pt-10 pointer-events-none">
