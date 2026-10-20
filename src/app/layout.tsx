@@ -17,6 +17,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-58RVWR8X');
+          `}
+        </Script>
+        {/* End Google Tag Manager */}
+
         {/* Google tag (gtag.js) - AW-18141846129 */}
         <Script 
           async 
@@ -31,28 +43,16 @@ export default function RootLayout({
             gtag('config', 'AW-18141846129');
           `}
         </Script>
-
-        {/* Google Tag Manager - GTM-N6GHGZHS */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-N6GHGZHS');
-          `}
-        </Script>
-        {/* End Google Tag Manager */}
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased selection:bg-primary/30 selection:text-primary-foreground">
-        {/* Google Tag Manager (noscript) - Fallback for every page */}
+        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-N6GHGZHS"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-58RVWR8X"
             height="0" 
             width="0" 
             style={{ display: 'none', visibility: 'hidden' }}
@@ -81,7 +81,7 @@ export default function RootLayout({
           id="tawk-to" 
           src="https://embed.tawk.to/6a84a2f15981892f72ddf578/1k0b1p042"
           strategy="afterInteractive"
-          crossOrigin="*"
+          crossOrigin="anonymous"
         />
       </body>
     </html>
