@@ -17,6 +17,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google tag (gtag.js) - AW-18497682553 */}
+        <Script 
+          async 
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18497682553" 
+          strategy="afterInteractive" 
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18497682553');
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
@@ -28,21 +43,6 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Tag Manager */}
-
-        {/* Google tag (gtag.js) - AW-18141846129 */}
-        <Script 
-          async 
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18141846129" 
-          strategy="afterInteractive" 
-        />
-        <Script id="google-ads-tag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-18141846129');
-          `}
-        </Script>
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
