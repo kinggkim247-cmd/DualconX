@@ -124,6 +124,13 @@ export function AegisRecoveryForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    // Google Ads Conversion tracking - Submit lead form
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-18497682553/0YuYCNmrgpYdEPn4sPRE",
+      });
+    }
+
     toast({
       title: "Request Submitted Successfully",
       description: "Our forensic team will review your case and contact you within 24 hours.",

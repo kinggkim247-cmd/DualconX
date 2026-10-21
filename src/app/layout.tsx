@@ -32,6 +32,26 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* Event snippet for Submit lead form conversion */}
+        <Script id="google-ads-lead-conversion-helper" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-18497682553/0YuYCNmrgpYdEPn4sPRE',
+                  'event_callback': callback
+                });
+              }
+              return false;
+            }
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`

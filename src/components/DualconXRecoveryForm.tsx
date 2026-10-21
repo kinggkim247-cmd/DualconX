@@ -146,6 +146,13 @@ export function DualconXRecoveryForm() {
 
       if (error) throw error;
 
+      // Google Ads Conversion tracking - Submit lead form
+      if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "conversion", {
+          send_to: "AW-18497682553/0YuYCNmrgpYdEPn4sPRE",
+        });
+      }
+
       toast({
         title: "Forensic Intake Initiated",
         description: "A lead analyst will review your encrypted file and contact you in < 24h.",
